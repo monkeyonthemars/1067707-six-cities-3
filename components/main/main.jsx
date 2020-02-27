@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 const Main = (props) => {
-  const {rentalOffersCount, rentalOffers} = props;
+  const {rentalOffersCount, rentalOffers, onRentalTitleClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -119,7 +119,7 @@ const Main = (props) => {
                             <span className="visually-hidden">Rating</span>
                           </div>
                         </div>
-                        <h2 className="place-card__name">
+                        <h2 className="place-card__name" onClick={onRentalTitleClick}>
                           <a href="#">{rentalOffer.title}</a>
                         </h2>
                         <p className="place-card__type">Apartment</p>
@@ -148,6 +148,7 @@ Main.propTypes = {
         title: PropTypes.string.isRequired
       })
   ).isRequired,
+  onRentalTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;
