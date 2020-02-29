@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import App from './app.jsx';
 
 const RENTAL_OFFERS_COUNT = 312;
 const rentalOffers = [

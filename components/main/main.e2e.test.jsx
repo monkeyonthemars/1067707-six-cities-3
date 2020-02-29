@@ -1,7 +1,7 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Main from "./main.jsx";
+import React from 'react';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Main from './main.jsx';
 
 const RENTAL_OFFERS_COUNT = 312;
 const rentalOffers = [
