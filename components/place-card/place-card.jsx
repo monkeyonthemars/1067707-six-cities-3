@@ -10,7 +10,7 @@ const PlaceCard = (props) => {
     priceText,
     isBookmark,
     rating,
-    name,
+    title,
     type,
     onRentalTitleClick,
     onMouseEnter,
@@ -68,7 +68,7 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name" onClick={onRentalTitleClick}>
-          <a href="#">{name}</a>
+          <a href="#">{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -84,7 +84,7 @@ PlaceCard.propTypes = {
   priceText: PropTypes.string.isRequired,
   isBookmark: PropTypes.bool.isRequired,
   rating: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   onRentalTitleClick: PropTypes.func.isRequired,
   onMouseEnter: PropTypes.func.isRequired,

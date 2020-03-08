@@ -7,8 +7,9 @@ export default [
     priceText: `night`,
     isBookmark: false,
     rating: 100,
-    name: `Luxury Tiny House, flowerbulb region nearby A'dam`,
-    type: `Apartment`
+    title: `Luxury Tiny House, flowerbulb region nearby A'dam`,
+    type: `Apartment`,
+    coordinates: [52.4009553943508, 4.86309666406198]
   }, {
     id: 1,
     mark: ``,
@@ -17,8 +18,9 @@ export default [
     priceText: `night`,
     isBookmark: true,
     rating: 60,
-    name: `Houseboat on IJsselmeer in Amsterdam`,
-    type: `Shared room`
+    title: `Houseboat on IJsselmeer in Amsterdam`,
+    type: `Shared room`,
+    coordinates: [52.399553943508, 4.87309666406198]
   }, {
     id: 2,
     mark: `Premium`,
@@ -27,8 +29,9 @@ export default [
     priceText: `night`,
     isBookmark: false,
     rating: 80,
-    name: `Amstel Rembrandtplein`,
-    type: `Apartment`
+    title: `Amstel Rembrandtplein`,
+    type: `Apartment`,
+    coordinates: [52.3809553943508, 4.909309666406198]
   }, {
     id: 3,
     mark: ``,
@@ -37,7 +40,8 @@ export default [
     priceText: `night`,
     isBookmark: true,
     rating: 100,
-    name: `Room with a View on the park.`,
-    type: `Private room`
+    title: `Room with a View on the park.`,
+    type: `Private room`,
+    coordinates: [52.3709553943508, 4.919309666406198]
   }
 ];

@@ -5,10 +5,11 @@ import Main from '../main/main.jsx';
 const rentalTitleClickHandler = () => {};
 
 const App = (props) => {
-  const {rentalOffersCount, rentalOffers} = props;
+  const {cityCoordinates, rentalOffersCount, rentalOffers} = props;
 
   return (
     <Main
+      cityCoordinates={cityCoordinates}
       rentalOffersCount={rentalOffersCount}
       rentalOffers={rentalOffers}
       onRentalTitleClick={rentalTitleClickHandler}
@@ -17,10 +18,20 @@ const App = (props) => {
 };
 
 App.propTypes = {
+  cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   rentalOffersCount: PropTypes.number.isRequired,
   rentalOffers: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired,
+        mark: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        priceValue: PropTypes.number.isRequired,
+        priceText: PropTypes.string.isRequired,
+        isBookmark: PropTypes.bool.isRequired,
+        rating: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        coordinates: PropTypes.array.isRequired
       })
   ).isRequired
 };

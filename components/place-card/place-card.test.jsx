@@ -15,7 +15,7 @@ it(`<PlaceCard /> should render correctly`, () => {
         priceText={place.priceText}
         isBookmark={place.isBookmark}
         rating={place.rating}
-        name={place.name}
+        title={place.title}
         type={place.type}
         onRentalTitleClick={() => {}}
         onMouseEnter={() => {}}

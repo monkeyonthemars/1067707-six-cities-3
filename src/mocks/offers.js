@@ -7,8 +7,9 @@ export default [
     priceText: `night`,
     isBookmark: false,
     rating: 80,
-    name: `Beautiful & luxurious apartment at great location`,
-    type: `Apartment`
+    title: `Beautiful & luxurious apartment at great location`,
+    type: `Apartment`,
+    coordinates: [52.3909553943508, 4.85309666406198]
   }, {
     id: 1,
     mark: ``,
@@ -17,8 +18,9 @@ export default [
     priceText: `night`,
     isBookmark: true,
     rating: 80,
-    name: `Wood and stone place`,
-    type: `Private room`
+    title: `Wood and stone place`,
+    type: `Private room`,
+    coordinates: [52.369553943508, 4.85309666406198]
   }, {
     id: 2,
     mark: ``,
@@ -27,8 +29,9 @@ export default [
     priceText: `night`,
     isBookmark: false,
     rating: 80,
-    name: `Canal View Prinsengracht`,
-    type: `Apartment`
+    title: `Canal View Prinsengracht`,
+    type: `Apartment`,
+    coordinates: [52.3909553943508, 4.929309666406198]
   }, {
     id: 3,
     mark: `Premium`,
@@ -37,7 +40,8 @@ export default [
     priceText: `night`,
     isBookmark: false,
     rating: 100,
-    name: `Nice, cozy, warm big bed apartment`,
-    type: `Apartment`
+    title: `Nice, cozy, warm big bed apartment`,
+    type: `Apartment`,
+    coordinates: [52.3809553943508, 4.939309666406198]
   }
 ];

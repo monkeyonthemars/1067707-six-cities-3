@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Map from '../map/map.jsx';
 
 const Main = (props) => {
-  const {rentalOffersCount, rentalOffers, onRentalTitleClick} = props;
+  const {cityCoordinates, rentalOffersCount, rentalOffers, onRentalTitleClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -132,7 +133,10 @@ const Main = (props) => {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map" />
+              <Map
+                cityCoordinates={cityCoordinates}
+                rentalOffers={rentalOffers}
+              />
             </div>
           </div>
         </div>
@@ -142,10 +146,20 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   rentalOffersCount: PropTypes.number.isRequired,
   rentalOffers: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired,
+        mark: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        priceValue: PropTypes.number.isRequired,
+        priceText: PropTypes.string.isRequired,
+        isBookmark: PropTypes.bool.isRequired,
+        rating: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        coordinates: PropTypes.array.isRequired
       })
   ).isRequired,
   onRentalTitleClick: PropTypes.func.isRequired

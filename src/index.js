@@ -1,17 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "../components/app/app.jsx";
+import rentalOffers from '../src/mocks/offers.js';
 
 const RENTAL_OFFERS_COUNT = 312;
-const rentalOffers = [
-  {title: `Beautiful & luxurious apartment at great location`},
-  {title: `Wood and stone place`},
-  {title: `Canal View Prinsengracht`},
-  {title: `Nice, cozy, warm big bed apartment`}
-];
+const CITY_AMSTERDAM_COORDINATES = [52.38333, 4.9];
 
 ReactDOM.render(
     <App
+      cityCoordinates={CITY_AMSTERDAM_COORDINATES}
       rentalOffersCount={RENTAL_OFFERS_COUNT}
       rentalOffers={rentalOffers}
     />,
