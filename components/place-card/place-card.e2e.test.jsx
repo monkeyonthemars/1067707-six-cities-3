@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import PlaceCard from './place-card.jsx';
-import placesList from '../../src/mocks/offers-test.js';
+import rentalOffers from '../../src/mocks/offers-test.js';
 
-const place = placesList[3];
+const rentalOffer = rentalOffers[3];
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -13,24 +13,24 @@ Enzyme.configure({
 it(`Handler should get data on hover`, () => {
   const onMouseEnter = jest.fn();
 
-  const placeCard = shallow(
+  const rentalOfferCard = shallow(
       <PlaceCard
-        id={place.id}
-        mark={place.mark}
-        image={place.image}
-        priceValue={place.priceValue}
-        priceText={place.priceText}
-        isBookmark={place.isBookmark}
-        rating={place.rating}
-        name={place.name}
-        type={place.type}
+        id={rentalOffer.id}
+        mark={rentalOffer.mark}
+        image={rentalOffer.image}
+        priceValue={rentalOffer.priceValue}
+        priceText={rentalOffer.priceText}
+        isBookmark={rentalOffer.isBookmark}
+        rating={rentalOffer.rating}
+        title={rentalOffer.title}
+        type={rentalOffer.type}
         onRentalTitleClick={() => {}}
         onMouseEnter={onMouseEnter}
         onMouseLeave={() => {}}
       />
   );
 
-  placeCard.find(`.place-card`).props().onMouseEnter();
+  rentalOfferCard.find(`.place-card`).props().onMouseEnter();
 
   expect(onMouseEnter.mock.calls.length).toBe(1);
 });

@@ -34,7 +34,7 @@ class PlacesList extends PureComponent {
                 priceText={place.priceText}
                 isBookmark={place.isBookmark}
                 rating={place.rating}
-                name={place.name}
+                title={place.title}
                 type={place.type}
                 onRentalTitleClick={this.props.onRentalTitleClick}
                 onMouseEnter={this._setActivePlaceCard}
@@ -58,7 +58,7 @@ PlacesList.propTypes = {
         priceText: PropTypes.string.isRequired,
         isBookmark: PropTypes.bool.isRequired,
         rating: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired
       })
   ).isRequired,

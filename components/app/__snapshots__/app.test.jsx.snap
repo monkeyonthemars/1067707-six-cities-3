@@ -316,7 +316,7 @@ exports[`<App /> should render correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Beautiful & luxurious apartment at great location
+                    Luxury Tiny House, flowerbulb region nearby A'dam
                   </a>
                 </h2>
                 <p
@@ -418,7 +418,7 @@ exports[`<App /> should render correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Wood and stone place
+                    Houseboat on IJsselmeer in Amsterdam
                   </a>
                 </h2>
                 <p
@@ -520,7 +520,7 @@ exports[`<App /> should render correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Canal View Prinsengracht
+                    Amstel Rembrandtplein
                   </a>
                 </h2>
                 <p
@@ -622,7 +622,7 @@ exports[`<App /> should render correctly 1`] = `
                   <a
                     href="#"
                   >
-                    Nice, cozy, warm big bed apartment
+                    Room with a View on the park.
                   </a>
                 </h2>
                 <p
