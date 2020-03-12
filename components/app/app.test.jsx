@@ -1,21 +1,20 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
-import rentalOffers from '../../src/mocks/offers-test.js';
+import {App} from './app.jsx';
+import mocks from '../../src/mocks/offers-test.js';
 
-const RENTAL_OFFERS_COUNT = 312;
-const CITY_AMSTERDAM_COORDINATES = [52.38333, 4.9];
-const rentalTitleClickHandler = () => {};
+describe(`Render App`, () => {
+  it(`<App /> should render correctly`, () => {
+    const tree = renderer.create(
+        <App
+          cities={mocks.cities}
+          currentCity={mocks.currentCity}
+          currentOffers={mocks.rentalOffers}
+          onRentalTitleClick={() => {}}
+          onCityClick={() => {}}
+        />
+    ).toJSON();
 
-it(`<App /> should render correctly`, () => {
-  const tree = renderer.create(
-      <App
-        cityCoordinates={CITY_AMSTERDAM_COORDINATES}
-        rentalOffersCount={RENTAL_OFFERS_COUNT}
-        rentalOffers={rentalOffers}
-        onRentalTitleClick={rentalTitleClickHandler}
-      />
-  ).toJSON();
-
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

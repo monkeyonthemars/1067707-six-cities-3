@@ -48,6 +48,7 @@ export default [
     rating: 80,
     title: `Wood and stone place`,
     type: `Private room`,
+    coordinates: [48.914716, 2.369014],
     city: CITY.PARIS
   }, {
     id: 2,
@@ -59,6 +60,7 @@ export default [
     rating: 80,
     title: `Canal View Prinsengracht`,
     type: `Apartment`,
+    coordinates: [48.924716, 2.379014],
     city: CITY.PARIS
   }, {
     id: 3,
@@ -70,9 +72,10 @@ export default [
     rating: 100,
     title: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
+    coordinates: [53.541086, 9.983682],
     city: CITY.HAMBURG
   }, {
-    id: 0,
+    id: 4,
     mark: `Premium`,
     image: `apartment-01.jpg`,
     priceValue: 120,
@@ -81,10 +84,10 @@ export default [
     rating: 80,
     title: `Beautiful & luxurious apartment at great location`,
     type: `Apartment`,
-    coordinates: [52.3909553943508, 4.85309666406198],
+    coordinates: [50.945173, 6.943101],
     city: CITY.COLOGNE
   }, {
-    id: 1,
+    id: 5,
     mark: ``,
     image: `room.jpg`,
     priceValue: 80,
@@ -93,9 +96,10 @@ export default [
     rating: 80,
     title: `Wood and stone place`,
     type: `Private room`,
+    coordinates: [50.860346, 4.341721],
     city: CITY.BRUSSELS
   }, {
-    id: 2,
+    id: 6,
     mark: ``,
     image: `apartment-02.jpg`,
     priceValue: 132,
@@ -104,9 +108,10 @@ export default [
     rating: 80,
     title: `Canal View Prinsengracht`,
     type: `Apartment`,
+    coordinates: [51.327741, 6.783456],
     city: CITY.DUSSELDORF
   }, {
-    id: 3,
+    id: 7,
     mark: `Premium`,
     image: `apartment-03.jpg`,
     priceValue: 180,
@@ -115,6 +120,7 @@ export default [
     rating: 100,
     title: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
+    coordinates: [51.237741, 6.753456],
     city: CITY.DUSSELDORF
   }
 ];
