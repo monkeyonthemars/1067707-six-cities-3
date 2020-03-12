@@ -1,26 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {ActionCreator} from "../../src/reducer/reducer.js";
 import Main from '../main/main.jsx';
 
 const rentalTitleClickHandler = () => {};
 
 const App = (props) => {
-  const {cityCoordinates, rentalOffersCount, rentalOffers} = props;
+  const {onCityClick, currentOffers, currentCity, cities} = props;
 
   return (
     <Main
-      cityCoordinates={cityCoordinates}
-      rentalOffersCount={rentalOffersCount}
-      rentalOffers={rentalOffers}
+      cities={cities}
+      currentCity={currentCity}
+      currentOffers={currentOffers}
       onRentalTitleClick={rentalTitleClickHandler}
+      onCityClick={onCityClick}
     />
   );
 };
 
 App.propTypes = {
-  cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  rentalOffersCount: PropTypes.number.isRequired,
-  rentalOffers: PropTypes.arrayOf(
+  cities: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+      }).isRequired
+  ).isRequired,
+  currentCity: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
+  currentOffers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         mark: PropTypes.string.isRequired,
@@ -33,7 +44,23 @@ App.propTypes = {
         type: PropTypes.string.isRequired,
         coordinates: PropTypes.array.isRequired
       })
-  ).isRequired
+  ).isRequired,
+  onCityClick: PropTypes.func.isRequired
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  cities: state.cities,
+  currentCity: state.currentCity,
+  currentOffers: state.currentOffers
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCityClick(evt, city) {
+    evt.preventDefault();
+    dispatch(ActionCreator.changeCity(city));
+    dispatch(ActionCreator.getOffers(city));
+  }
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
