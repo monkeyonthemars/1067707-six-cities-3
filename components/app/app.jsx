@@ -7,7 +7,14 @@ import Main from '../main/main.jsx';
 const rentalTitleClickHandler = () => {};
 
 const App = (props) => {
-  const {onCityClick, currentOffers, currentCity, cities} = props;
+  const {
+    onCityClick,
+    onMouseEnter,
+    onMouseLeave,
+    currentOffers,
+    currentCity,
+    cities
+  } = props;
 
   return (
     <Main
@@ -16,6 +23,8 @@ const App = (props) => {
       currentOffers={currentOffers}
       onRentalTitleClick={rentalTitleClickHandler}
       onCityClick={onCityClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     />
   );
 };
@@ -24,7 +33,9 @@ App.propTypes = {
   cities: propTypes.cities,
   currentCity: propTypes.currentCity,
   currentOffers: propTypes.currentOffers,
-  onCityClick: propTypes.onCityClick
+  onCityClick: propTypes.onCityClick,
+  onMouseEnter: propTypes.onMouseEnter,
+  onMouseLeave: propTypes.onMouseLeave
 };
 
 const mapStateToProps = (state) => ({
@@ -38,6 +49,12 @@ const mapDispatchToProps = (dispatch) => ({
     stopDefaultAction(evt);
     dispatch(ActionCreator.changeCity(city));
     dispatch(ActionCreator.getOffers(city));
+  },
+  onMouseEnter(id) {
+    dispatch(ActionCreator.setActivePlaceCard(id));
+  },
+  onMouseLeave() {
+    dispatch(ActionCreator.removeActivePlaceCard());
   }
 });
 

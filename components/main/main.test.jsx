@@ -11,6 +11,8 @@ it(`<Main /> should render correctly`, () => {
         currentOffers={mocks.rentalOffers}
         onRentalTitleClick={() => {}}
         onCityClick={() => {}}
+        onMouseEnter={() => {}}
+        onMouseLeave={() => {}}
       />
   ).toJSON();
 

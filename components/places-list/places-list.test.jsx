@@ -6,9 +6,10 @@ import mocks from '../../src/mocks/offers-test.js';
 it(`<PlacesList /> should render correctly`, () => {
   const tree = renderer.create(
       <PlacesList
-        rentalOffersCount={mocks.rentalOffers.length}
         placesList={mocks.rentalOffers}
         onRentalTitleClick={() => {}}
+        onMouseEnter={() => {}}
+        onMouseLeave={() => {}}
       />
   ).toJSON();
 

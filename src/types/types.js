@@ -54,5 +54,7 @@ export const propTypes = {
   ),
   cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   onCityClick: PropTypes.func.isRequired,
-  onRentalTitleClick: PropTypes.func.isRequired
+  onRentalTitleClick: PropTypes.func.isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired
 };
