@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {propTypes} from '../../src/types/types.js';
 
 const PlaceCard = (props) => {
   const {
@@ -76,19 +76,6 @@ const PlaceCard = (props) => {
   );
 };
 
-PlaceCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  mark: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  priceValue: PropTypes.number.isRequired,
-  priceText: PropTypes.string.isRequired,
-  isBookmark: PropTypes.bool.isRequired,
-  rating: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  onRentalTitleClick: PropTypes.func.isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired
-};
+PlaceCard.propTypes = propTypes.placeCard;
 
 export default PlaceCard;

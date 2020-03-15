@@ -1,60 +1,60 @@
 const CITY = {
   PARIS: {
     coordinates: [48.904715, 2.359015],
-    name: `PARIS`
+    name: `Paris`
   },
   COLOGNE: {
     coordinates: [50.935172, 6.953100],
-    name: `COLOGNE`
+    name: `Cologne`
   },
   BRUSSELS: {
     coordinates: [50.850345, 4.351720],
-    name: `BRUSSELS`
+    name: `Brussels`
   },
   AMSTERDAM: {
     coordinates: [52.38334, 4.8],
-    name: `AMSTERDAM`
+    name: `Amsterdam`
   },
   HAMBURG: {
     coordinates: [53.551085, 9.993681],
-    name: `HAMBURG`
+    name: `Hamburg`
   },
   DUSSELDORF: {
     coordinates: [51.227740, 6.773455],
-    name: `DUSSELDORF`
+    name: `Dusseldorf`
   }
 };
 
 const cities = [
   {
     coordinates: [48.904715, 2.359015],
-    name: `PARIS`
+    name: `Paris`
   },
   {
     coordinates: [50.935172, 6.953100],
-    name: `COLOGNE`
+    name: `Cologne`
   },
   {
     coordinates: [50.850345, 4.351720],
-    name: `BRUSSELS`
+    name: `Brussels`
   },
   {
     coordinates: [52.38333, 4.9],
-    name: `AMSTERDAM`
+    name: `Amsterdam`
   },
   {
     coordinates: [53.551085, 9.993681],
-    name: `HAMBURG`
+    name: `Hamburg`
   },
   {
     coordinates: [51.227740, 6.773455],
-    name: `DUSSELDORF`
+    name: `Dusseldorf`
   }
 ];
 
 const currentCity = {
   coordinates: [48.904715, 2.359015],
-  name: `PARIS`
+  name: `Paris`
 };
 
 const rentalOffers = [

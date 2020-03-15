@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
+import {propTypes} from '../../src/types/types.js';
 import {ActionCreator} from "../../src/reducer/reducer.js";
 import Main from '../main/main.jsx';
 
@@ -21,31 +21,10 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  cities: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-      }).isRequired
-  ).isRequired,
-  currentCity: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  }).isRequired,
-  currentOffers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        mark: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        priceValue: PropTypes.number.isRequired,
-        priceText: PropTypes.string.isRequired,
-        isBookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        coordinates: PropTypes.array.isRequired
-      })
-  ).isRequired,
-  onCityClick: PropTypes.func.isRequired
+  cities: propTypes.cities,
+  currentCity: propTypes.currentCity,
+  currentOffers: propTypes.currentOffers,
+  onCityClick: propTypes.onCityClick
 };
 
 const mapStateToProps = (state) => ({
@@ -55,8 +34,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityClick(evt, city) {
-    evt.preventDefault();
+  onCityClick(evt, city, stopDefaultAction) {
+    stopDefaultAction(evt);
     dispatch(ActionCreator.changeCity(city));
     dispatch(ActionCreator.getOffers(city));
   }

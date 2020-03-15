@@ -1,27 +1,27 @@
 const CITY = {
   PARIS: {
     coordinates: [48.904716, 2.359014],
-    name: `PARIS`
+    name: `Paris`
   },
   COLOGNE: {
     coordinates: [50.935173, 6.953101],
-    name: `COLOGNE`
+    name: `Cologne`
   },
   BRUSSELS: {
     coordinates: [50.850346, 4.351721],
-    name: `BRUSSELS`
+    name: `Brussels`
   },
   AMSTERDAM: {
     coordinates: [52.38333, 4.9],
-    name: `AMSTERDAM`
+    name: `Amsterdam`
   },
   HAMBURG: {
     coordinates: [53.551086, 9.993682],
-    name: `HAMBURG`
+    name: `Hamburg`
   },
   DUSSELDORF: {
     coordinates: [51.227741, 6.773456],
-    name: `DUSSELDORF`
+    name: `Dusseldorf`
   }
 };
 

@@ -10,7 +10,6 @@ Enzyme.configure({
 
 it(`Should titles be clicked`, () => {
   const rentalTitleClickHandler = jest.fn();
-  const cityClickHandler = jest.fn();
 
   const mainScreen = shallow(
       <Main
@@ -18,7 +17,7 @@ it(`Should titles be clicked`, () => {
         currentCity={mocks.currentCity}
         currentOffers={mocks.rentalOffers}
         onRentalTitleClick={rentalTitleClickHandler}
-        onCityClick={cityClickHandler}
+        onCityClick={() => {}}
       />
   );
 

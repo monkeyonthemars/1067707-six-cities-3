@@ -82,7 +82,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                PARIS
+                Paris
               </span>
             </a>
           </li>
@@ -95,7 +95,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                COLOGNE
+                Cologne
               </span>
             </a>
           </li>
@@ -108,7 +108,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                BRUSSELS
+                Brussels
               </span>
             </a>
           </li>
@@ -121,7 +121,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                AMSTERDAM
+                Amsterdam
               </span>
             </a>
           </li>
@@ -134,7 +134,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                HAMBURG
+                Hamburg
               </span>
             </a>
           </li>
@@ -147,7 +147,7 @@ exports[`<Main /> should render correctly 1`] = `
               onClick={[Function]}
             >
               <span>
-                DUSSELDORF
+                Dusseldorf
               </span>
             </a>
           </li>

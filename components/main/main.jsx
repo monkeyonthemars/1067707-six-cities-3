@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {propTypes} from '../../src/types/types.js';
 import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 
@@ -34,13 +34,11 @@ const Main = (props) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <ul className="locations__list tabs__list">
-              <CitiesList
-                cities={cities}
-                currentCity={currentCity}
-                onCityClick={onCityClick}
-              />
-            </ul>
+            <CitiesList
+              cities={cities}
+              currentCity={currentCity}
+              onCityClick={onCityClick}
+            />
           </section>
         </div>
         <div className="cities">
@@ -137,32 +135,11 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  cities: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-      }).isRequired
-  ).isRequired,
-  currentCity: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  }).isRequired,
-  currentOffers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        mark: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        priceValue: PropTypes.number.isRequired,
-        priceText: PropTypes.string.isRequired,
-        isBookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        coordinates: PropTypes.array.isRequired
-      })
-  ).isRequired,
-  onRentalTitleClick: PropTypes.func.isRequired,
-  onCityClick: PropTypes.func.isRequired
+  cities: propTypes.cities,
+  currentCity: propTypes.currentCity,
+  currentOffers: propTypes.currentOffers,
+  onRentalTitleClick: propTypes.onRentalTitleClick,
+  onCityClick: propTypes.onCityClick
 };
 
 export default Main;

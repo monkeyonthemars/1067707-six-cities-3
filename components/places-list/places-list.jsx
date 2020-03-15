@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import {propTypes} from '../../src/types/types.js';
 import PlaceCard from '../place-card/place-card.jsx';
 
 class PlacesList extends PureComponent {
@@ -49,20 +49,8 @@ class PlacesList extends PureComponent {
 }
 
 PlacesList.propTypes = {
-  placesList: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        mark: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        priceValue: PropTypes.number.isRequired,
-        priceText: PropTypes.string.isRequired,
-        isBookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired
-      })
-  ).isRequired,
-  onRentalTitleClick: PropTypes.func.isRequired
+  placesList: propTypes.placesList,
+  onRentalTitleClick: propTypes.onRentalTitleClick
 };
 
 export default PlacesList;
