@@ -12,6 +12,8 @@ describe(`Render App`, () => {
           currentOffers={mocks.rentalOffers}
           onRentalTitleClick={() => {}}
           onCityClick={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
     ).toJSON();
 

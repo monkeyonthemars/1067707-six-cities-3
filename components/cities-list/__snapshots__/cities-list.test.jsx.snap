@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CitiesList /> cities-list render correctly 1`] = `
-Array [
+exports[`<CitiesList /> render correctly 1`] = `
+<ul
+  className="locations__list tabs__list"
+>
   <li
     className="locations__item"
   >
@@ -11,10 +13,10 @@ Array [
       onClick={[Function]}
     >
       <span>
-        PARIS
+        Paris
       </span>
     </a>
-  </li>,
+  </li>
   <li
     className="locations__item"
   >
@@ -24,10 +26,10 @@ Array [
       onClick={[Function]}
     >
       <span>
-        COLOGNE
+        Cologne
       </span>
     </a>
-  </li>,
+  </li>
   <li
     className="locations__item"
   >
@@ -37,10 +39,10 @@ Array [
       onClick={[Function]}
     >
       <span>
-        BRUSSELS
+        Brussels
       </span>
     </a>
-  </li>,
+  </li>
   <li
     className="locations__item"
   >
@@ -50,10 +52,10 @@ Array [
       onClick={[Function]}
     >
       <span>
-        AMSTERDAM
+        Amsterdam
       </span>
     </a>
-  </li>,
+  </li>
   <li
     className="locations__item"
   >
@@ -63,10 +65,10 @@ Array [
       onClick={[Function]}
     >
       <span>
-        HAMBURG
+        Hamburg
       </span>
     </a>
-  </li>,
+  </li>
   <li
     className="locations__item"
   >
@@ -76,9 +78,9 @@ Array [
       onClick={[Function]}
     >
       <span>
-        DUSSELDORF
+        Dusseldorf
       </span>
     </a>
-  </li>,
-]
+  </li>
+</ul>
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import {propTypes} from '../../src/types/types.js';
 
 const CitiesList = (props) => {
   const {
@@ -8,37 +8,36 @@ const CitiesList = (props) => {
     currentCity
   } = props;
 
+  const stopDefaultAction = (evt) => {
+    evt.preventDefault();
+  };
+
   return (
-    cities.map((city) => (
-      <li
-        key={city.name}
-        className="locations__item">
-        <a
-          className={`locations__item-link tabs__item${city.name === currentCity.name ? ` tabs__item--active` : ``}`}
-          href="#"
-          onClick={(evt) => onCityClick(evt, city)}
-        >
-          <span>{city.name}</span>
-        </a>
-      </li>
-    ))
+    <ul className="locations__list tabs__list">
+
+      {cities.map((city) => (
+        <React.Fragment key={city.name}>
+          <li className="locations__item">
+            <a
+              className={`locations__item-link tabs__item${city.name === currentCity.name ? ` tabs__item--active` : ``}`}
+              href="#"
+              onClick={(evt) => onCityClick(evt, city, stopDefaultAction)}
+            >
+              <span>{city.name}</span>
+            </a>
+          </li>
+        </React.Fragment>
+      ))}
+
+    </ul>
   );
 
 };
 
-// CitiesList.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   mark: PropTypes.string.isRequired,
-//   image: PropTypes.string.isRequired,
-//   priceValue: PropTypes.number.isRequired,
-//   priceText: PropTypes.string.isRequired,
-//   isBookmark: PropTypes.bool.isRequired,
-//   rating: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   type: PropTypes.string.isRequired,
-//   onRentalTitleClick: PropTypes.func.isRequired,
-//   onMouseEnter: PropTypes.func.isRequired,
-//   onMouseLeave: PropTypes.func.isRequired
-// };
+CitiesList.propTypes = {
+  cities: propTypes.cities,
+  currentCity: propTypes.currentCity,
+  onCityClick: propTypes.onCityClick
+};
 
 export default CitiesList;

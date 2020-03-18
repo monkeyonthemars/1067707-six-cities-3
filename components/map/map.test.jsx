@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import Map from './map.jsx';
 import mocks from '../../src/mocks/offers-test.js';
 
-it(`<Map /> map render correctly`, () => {
+it(`<Map /> render correctly`, () => {
   const tree = renderer.create(
       <Map
         cityCoordinates={mocks.currentCity.coordinates}

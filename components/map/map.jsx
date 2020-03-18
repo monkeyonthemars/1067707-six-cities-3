@@ -1,6 +1,6 @@
 import React, {PureComponent, createRef} from 'react';
-import PropTypes from 'prop-types';
 import leaflet from 'leaflet';
+import {propTypes} from '../../src/types/types.js';
 
 const ICON = leaflet.icon({
   iconUrl: `img/pin.svg`,
@@ -63,21 +63,8 @@ class Map extends PureComponent {
 }
 
 Map.propTypes = {
-  cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  currentOffers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        mark: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        priceValue: PropTypes.number.isRequired,
-        priceText: PropTypes.string.isRequired,
-        isBookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        coordinates: PropTypes.array.isRequired
-      })
-  ).isRequired
+  cityCoordinates: propTypes.cityCoordinates,
+  currentOffers: propTypes.currentOffers
 };
 
 export default Map;
