@@ -1,59 +1,111 @@
 const CITY = {
   PARIS: {
-    coordinates: [48.904715, 2.359015],
+    location: {
+      latitude: 48.85661,
+      longitude: 2.351499,
+      zoom: 13
+    },
     name: `Paris`
   },
   COLOGNE: {
-    coordinates: [50.935172, 6.953100],
+    location: {
+      latitude: 50.938361,
+      longitude: 6.959974,
+      zoom: 13
+    },
     name: `Cologne`
   },
   BRUSSELS: {
-    coordinates: [50.850345, 4.351720],
+    location: {
+      latitude: 50.846557,
+      longitude: 4.351697,
+      zoom: 13
+    },
     name: `Brussels`
   },
   AMSTERDAM: {
-    coordinates: [52.38334, 4.8],
+    location: {
+      latitude: 52.37454,
+      longitude: 4.897976,
+      zoom: 13
+    },
     name: `Amsterdam`
   },
   HAMBURG: {
-    coordinates: [53.551085, 9.993681],
+    location: {
+      latitude: 53.550341,
+      longitude: 10.000654,
+      zoom: 13
+    },
     name: `Hamburg`
   },
   DUSSELDORF: {
-    coordinates: [51.227740, 6.773455],
+    location: {
+      latitude: 51.225402,
+      longitude: 6.776314,
+      zoom: 13
+    },
     name: `Dusseldorf`
   }
 };
 
 const cities = [
   {
-    coordinates: [48.904715, 2.359015],
+    location: {
+      latitude: 48.85661,
+      longitude: 2.351499,
+      zoom: 13
+    },
     name: `Paris`
   },
   {
-    coordinates: [50.935172, 6.953100],
+    location: {
+      latitude: 50.938361,
+      longitude: 6.959974,
+      zoom: 13
+    },
     name: `Cologne`
   },
   {
-    coordinates: [50.850345, 4.351720],
+    location: {
+      latitude: 50.846557,
+      longitude: 4.351697,
+      zoom: 13
+    },
     name: `Brussels`
   },
   {
-    coordinates: [52.38333, 4.9],
+    location: {
+      latitude: 52.37454,
+      longitude: 4.897976,
+      zoom: 13
+    },
     name: `Amsterdam`
   },
   {
-    coordinates: [53.551085, 9.993681],
+    location: {
+      latitude: 53.550341,
+      longitude: 10.000654,
+      zoom: 13
+    },
     name: `Hamburg`
   },
   {
-    coordinates: [51.227740, 6.773455],
+    location: {
+      latitude: 51.225402,
+      longitude: 6.776314,
+      zoom: 13
+    },
     name: `Dusseldorf`
   }
 ];
 
 const currentCity = {
-  coordinates: [48.904715, 2.359015],
+  location: {
+    latitude: 48.85661,
+    longitude: 2.351499,
+    zoom: 13
+  },
   name: `Paris`
 };
 

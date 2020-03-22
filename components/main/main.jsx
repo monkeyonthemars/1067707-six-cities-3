@@ -5,7 +5,7 @@ import CitiesList from '../cities-list/cities-list.jsx';
 import PlacesList from '../places-list/places-list.jsx';
 
 const Main = (props) => {
-  const {
+  let {
     currentOffers,
     onRentalTitleClick,
     currentCity,
@@ -14,6 +14,14 @@ const Main = (props) => {
     onMouseEnter,
     onMouseLeave
   } = props;
+
+  if (currentOffers === undefined) {
+    currentOffers = [];
+  }
+
+  if (cities === undefined) {
+    cities = [];
+  }
 
   return (
     <div className="page page--gray page--main">
@@ -57,7 +65,7 @@ const Main = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{currentOffers.length} places to stay in Amsterdam</b>
+                <b className="places__found">{currentOffers.length} places to stay in {currentCity.name}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex={0}>
@@ -86,7 +94,7 @@ const Main = (props) => {
               </section>
               <div className="cities__right-section">
                 <Map
-                  cityCoordinates={currentCity.coordinates}
+                  cityCoordinates={currentCity.location}
                   currentOffers={currentOffers}
                 />
               </div>

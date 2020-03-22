@@ -8,10 +8,6 @@ const CitiesList = (props) => {
     currentCity
   } = props;
 
-  const stopDefaultAction = (evt) => {
-    evt.preventDefault();
-  };
-
   return (
     <ul className="locations__list tabs__list">
 
@@ -21,7 +17,10 @@ const CitiesList = (props) => {
             <a
               className={`locations__item-link tabs__item${city.name === currentCity.name ? ` tabs__item--active` : ``}`}
               href="#"
-              onClick={(evt) => onCityClick(evt, city, stopDefaultAction)}
+              onClick={(evt) => {
+                evt.preventDefault();
+                onCityClick(city);
+              }}
             >
               <span>{city.name}</span>
             </a>

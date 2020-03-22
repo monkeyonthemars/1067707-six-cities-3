@@ -172,7 +172,8 @@ exports[`Render App <App /> should render correctly 1`] = `
             className="places__found"
           >
             8
-             places to stay in Amsterdam
+             places to stay in 
+            Paris
           </b>
           <form
             action="#"
@@ -239,13 +240,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
-                <div
-                  className="place-card__mark"
-                >
-                  <span>
-                    Premium
-                  </span>
-                </div>
+                
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
                 >
@@ -256,7 +251,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-02.jpg"
+                      src="apartment-02.jpg"
                       width={260}
                     />
                   </a>
@@ -356,7 +351,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="apartment-01.jpg"
                       width={260}
                     />
                   </a>
@@ -445,13 +440,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
-                <div
-                  className="place-card__mark"
-                >
-                  <span>
-                    Premium
-                  </span>
-                </div>
+                
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
                 >
@@ -462,7 +451,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-03.jpg"
+                      src="apartment-03.jpg"
                       width={260}
                     />
                   </a>
@@ -562,7 +551,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/room.jpg"
+                      src="room.jpg"
                       width={260}
                     />
                   </a>
@@ -651,13 +640,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
-                <div
-                  className="place-card__mark"
-                >
-                  <span>
-                    Premium
-                  </span>
-                </div>
+                
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
                 >
@@ -668,7 +651,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-02.jpg"
+                      src="apartment-02.jpg"
                       width={260}
                     />
                   </a>
@@ -768,7 +751,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="apartment-01.jpg"
                       width={260}
                     />
                   </a>
@@ -857,13 +840,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
-                <div
-                  className="place-card__mark"
-                >
-                  <span>
-                    Premium
-                  </span>
-                </div>
+                
                 <div
                   className="cities__image-wrapper place-card__image-wrapper"
                 >
@@ -874,7 +851,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-03.jpg"
+                      src="apartment-03.jpg"
                       width={260}
                     />
                   </a>
@@ -974,7 +951,7 @@ exports[`Render App <App /> should render correctly 1`] = `
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/room.jpg"
+                      src="room.jpg"
                       width={260}
                     />
                   </a>
