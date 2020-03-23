@@ -4,7 +4,7 @@ import {propTypes} from '../../src/types/types.js';
 const PlaceCard = (props) => {
   const {
     id,
-    mark,
+    isPremium,
     image,
     priceValue,
     priceText,
@@ -17,10 +17,11 @@ const PlaceCard = (props) => {
     onMouseLeave
   } = props;
 
-  const markElement = mark === `` ? `` :
+  const markElement = isPremium ?
     <div className="place-card__mark">
       <span>Premium</span>
-    </div>;
+    </div>
+    : ``;
 
   const bookmarkTitle = isBookmark ? `In bookmarks` : `To bookmarks`;
   const bookmarkClass = isBookmark
@@ -41,7 +42,7 @@ const PlaceCard = (props) => {
         <a href="#">
           <img
             className="place-card__image"
-            src={`img/${image}`}
+            src={`${image}`}
             alt="Place image"
             width={260}
             height={200}

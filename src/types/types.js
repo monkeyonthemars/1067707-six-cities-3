@@ -4,12 +4,20 @@ export const propTypes = {
   cities: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
-        coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+        location: PropTypes.shape({
+          latitude: PropTypes.number.isRequired,
+          longitude: PropTypes.number.isRequired,
+          zoom: PropTypes.number.isRequired,
+        }).isRequired
       }).isRequired
   ).isRequired,
   currentCity: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    location: PropTypes.shape({
+      latitude: PropTypes.number.isRequired,
+      longitude: PropTypes.number.isRequired,
+      zoom: PropTypes.number.isRequired,
+    }).isRequired
   }).isRequired,
   currentOffers: PropTypes.arrayOf(
       PropTypes.shape({
@@ -52,7 +60,11 @@ export const propTypes = {
         type: PropTypes.string.isRequired
       })
   ),
-  cityCoordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  cityCoordinates: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+    zoom: PropTypes.number.isRequired,
+  }).isRequired,
   onCityClick: PropTypes.func.isRequired,
   onRentalTitleClick: PropTypes.func.isRequired,
   onMouseEnter: PropTypes.func.isRequired,

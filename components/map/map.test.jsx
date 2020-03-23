@@ -6,7 +6,7 @@ import mocks from '../../src/mocks/offers-test.js';
 it(`<Map /> render correctly`, () => {
   const tree = renderer.create(
       <Map
-        cityCoordinates={mocks.currentCity.coordinates}
+        cityCoordinates={mocks.currentCity.location}
         currentOffers={mocks.rentalOffers}
       />
   ).toJSON();

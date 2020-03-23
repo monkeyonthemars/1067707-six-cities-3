@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {propTypes} from '../../src/types/types.js';
-import {ActionCreator} from "../../src/reducer/reducer.js";
+import {ActionCreator as DataActionCreator} from '../../src/reducer/data/data.js';
+import {ActionCreator as OffersActionCreator} from '../../src/reducer/offers/offers.js';
+import {getCurrentCity, getCurrentOffers, getCities} from '../../src/reducer/data/selectors.js';
 import Main from '../main/main.jsx';
 
 const rentalTitleClickHandler = () => {};
@@ -39,22 +41,21 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  cities: state.cities,
-  currentCity: state.currentCity,
-  currentOffers: state.currentOffers
+  cities: getCities(state),
+  currentCity: getCurrentCity(state),
+  currentOffers: getCurrentOffers(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onCityClick(evt, city, stopDefaultAction) {
-    stopDefaultAction(evt);
-    dispatch(ActionCreator.changeCity(city));
-    dispatch(ActionCreator.getOffers(city));
+  onCityClick(city) {
+    dispatch(DataActionCreator.changeCity(city));
+    dispatch(DataActionCreator.getOffers(city));
   },
   onMouseEnter(id) {
-    dispatch(ActionCreator.setActivePlaceCard(id));
+    dispatch(OffersActionCreator.setActivePlaceCard(id));
   },
   onMouseLeave() {
-    dispatch(ActionCreator.removeActivePlaceCard());
+    dispatch(OffersActionCreator.removeActivePlaceCard());
   }
 });
 

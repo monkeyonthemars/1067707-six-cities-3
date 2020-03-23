@@ -22,12 +22,12 @@ class Map extends PureComponent {
     } = this.props;
 
     this.map = leaflet.map(this._mapRef.current, {
-      center: cityCoordinates,
+      center: [cityCoordinates.latitude, cityCoordinates.longitude],
       zoom: ZOOM_VALUE,
       zoomControl: false,
       marker: true
     });
-    this.map.setView(cityCoordinates, ZOOM_VALUE);
+    this.map.setView([cityCoordinates.latitude, cityCoordinates.longitude], ZOOM_VALUE);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -44,7 +44,7 @@ class Map extends PureComponent {
   }
 
   componentDidUpdate() {
-    this.map.setView(this.props.cityCoordinates, ZOOM_VALUE);
+    this.map.setView([this.props.cityCoordinates.latitude, this.props.cityCoordinates.longitude], ZOOM_VALUE);
 
     this.markerLayers.map((markerLayer) => (
       this.map.removeLayer(markerLayer)
