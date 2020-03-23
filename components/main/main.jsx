@@ -4,8 +4,14 @@ import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
 import PlacesList from '../places-list/places-list.jsx';
 
+const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 const Main = (props) => {
   let {
+    authorizationStatus,
     currentOffers,
     onRentalTitleClick,
     currentCity,
@@ -15,13 +21,9 @@ const Main = (props) => {
     onMouseLeave
   } = props;
 
-  if (currentOffers === undefined) {
-    currentOffers = [];
-  }
-
-  if (cities === undefined) {
-    cities = [];
-  }
+  const authInfo = authorizationStatus === AuthorizationStatus.NO_AUTH
+    ? <span className="header__login">Sign in</span>
+    : <span className="header__user-name user__name">Oliver.conner@gmail.com</span>;
 
   return (
     <div className="page page--gray page--main">
@@ -39,7 +41,7 @@ const Main = (props) => {
                   <a className="header__nav-link header__nav-link--profile" href="#">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
-                    <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                    {authInfo}
                   </a>
                 </li>
               </ul>
@@ -118,6 +120,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
+  authorizationStatus: propTypes.authorizationStatus,
   cities: propTypes.cities,
   currentCity: propTypes.currentCity,
   currentOffers: propTypes.currentOffers,

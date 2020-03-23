@@ -68,5 +68,8 @@ export const propTypes = {
   onCityClick: PropTypes.func.isRequired,
   onRentalTitleClick: PropTypes.func.isRequired,
   onMouseEnter: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired
+  onMouseLeave: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  login: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
