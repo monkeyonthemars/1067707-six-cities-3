@@ -5,10 +5,12 @@ const AuthorizationStatus = {
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  email: ``
 };
 
 const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  SET_AUTH_EMAIL: `SET_AUTH_EMAIL`
 };
 
 const ActionCreator = {
@@ -18,6 +20,13 @@ const ActionCreator = {
       payload: status,
     };
   },
+
+  setAuthEmail: (email) => {
+    return {
+      type: ActionType.SET_AUTH_EMAIL,
+      payload: email,
+    };
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +34,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.REQUIRED_AUTHORIZATION:
       return Object.assign({}, state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.SET_AUTH_EMAIL:
+      return Object.assign({}, state, {
+        email: action.payload,
       });
   }
 
@@ -39,6 +52,7 @@ const Operation = {
     })
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+        dispatch(ActionCreator.setAuthEmail(authData.login));
       });
   }
 };

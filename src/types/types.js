@@ -71,5 +71,6 @@ export const propTypes = {
   onMouseLeave: PropTypes.func.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   login: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired
 };

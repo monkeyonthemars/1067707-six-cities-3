@@ -209,4 +209,6 @@ const rentalOffers = [
   }
 ];
 
-export default {cities, rentalOffers, currentCity};
+const email = `test@test.com`;
+
+export default {cities, rentalOffers, currentCity, email};

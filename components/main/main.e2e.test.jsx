@@ -20,6 +20,7 @@ it(`Should titles be clicked`, () => {
       <Main
         authorizationStatus={AuthorizationStatus.NO_AUTH}
         cities={mocks.cities}
+        email={mocks.email}
         currentCity={mocks.currentCity}
         currentOffers={mocks.rentalOffers}
         onRentalTitleClick={rentalTitleClickHandler}

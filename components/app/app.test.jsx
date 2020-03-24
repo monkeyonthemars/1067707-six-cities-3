@@ -14,6 +14,7 @@ describe(`Render App`, () => {
         <App
           authorizationStatus={AuthorizationStatus.NO_AUTH}
           login={() => {}}
+          email={mocks.email}
           cities={mocks.cities}
           currentCity={mocks.currentCity}
           currentOffers={mocks.rentalOffers}

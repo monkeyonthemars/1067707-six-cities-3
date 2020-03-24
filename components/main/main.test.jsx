@@ -13,6 +13,7 @@ it(`<Main /> should render correctly`, () => {
       <Main
         authorizationStatus={AuthorizationStatus.NO_AUTH}
         cities={mocks.cities}
+        email={mocks.email}
         currentCity={mocks.currentCity}
         currentOffers={mocks.rentalOffers}
         onRentalTitleClick={() => {}}

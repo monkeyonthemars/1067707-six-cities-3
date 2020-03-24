@@ -9,6 +9,7 @@ class SignIn extends PureComponent {
     this.passwordRef = createRef();
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.email = this.props.email;
   }
 
   handleSubmit(evt) {

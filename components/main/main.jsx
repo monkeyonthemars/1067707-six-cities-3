@@ -12,6 +12,7 @@ const AuthorizationStatus = {
 const Main = (props) => {
   let {
     authorizationStatus,
+    email,
     currentOffers,
     onRentalTitleClick,
     currentCity,
@@ -23,7 +24,7 @@ const Main = (props) => {
 
   const authInfo = authorizationStatus === AuthorizationStatus.NO_AUTH
     ? <span className="header__login">Sign in</span>
-    : <span className="header__user-name user__name">Oliver.conner@gmail.com</span>;
+    : <span className="header__user-name user__name">{email}</span>;
 
   return (
     <div className="page page--gray page--main">
@@ -121,6 +122,7 @@ const Main = (props) => {
 
 Main.propTypes = {
   authorizationStatus: propTypes.authorizationStatus,
+  email: propTypes.email,
   cities: propTypes.cities,
   currentCity: propTypes.currentCity,
   currentOffers: propTypes.currentOffers,
