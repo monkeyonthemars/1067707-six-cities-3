@@ -6,6 +6,7 @@ const PlacesList = (props) => {
   const {
     placesList,
     onRentalTitleClick,
+    onFavoriteClick,
     onMouseEnter,
     onMouseLeave
   } = props;
@@ -26,6 +27,7 @@ const PlacesList = (props) => {
               title={place.title}
               type={place.type}
               onRentalTitleClick={onRentalTitleClick}
+              onFavoriteClick={onFavoriteClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             />
@@ -39,6 +41,7 @@ const PlacesList = (props) => {
 PlacesList.propTypes = {
   placesList: propTypes.placesList,
   onRentalTitleClick: propTypes.onRentalTitleClick,
+  onFavoriteClick: propTypes.onFavoriteClick,
   onMouseEnter: propTypes.onMouseEnter,
   onMouseLeave: propTypes.onMouseLeave
 };

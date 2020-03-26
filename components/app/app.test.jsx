@@ -19,6 +19,7 @@ describe(`Render App`, () => {
           currentCity={mocks.currentCity}
           currentOffers={mocks.rentalOffers}
           onRentalTitleClick={() => {}}
+          onFavoriteClick={() => {}}
           onCityClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}

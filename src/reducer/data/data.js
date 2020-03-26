@@ -1,6 +1,5 @@
 import uniqueCities from '../../mocks/offers.js';
-
-const DEFAULT_CITY_INDEX = 0;
+import {DEFAULT_CITY_INDEX} from '../../const.js';
 
 const getOffersInTheCity = (city, offers) => {
   return offers.slice().filter((offer) => {
@@ -22,7 +21,8 @@ const extend = (a, b) => {
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS`,
-  LOAD_OFFERS: `LOAD_OFFERS`
+  LOAD_OFFERS: `LOAD_OFFERS`,
+  ADD_TO_FAVORITES: `ADD_TO_FAVORITES`
 };
 
 const ActionCreator = {
@@ -37,6 +37,10 @@ const ActionCreator = {
   loadOffers: (offers) => ({
     type: ActionType.LOAD_OFFERS,
     payload: offers
+  }),
+  addToFavorites: (offerId) => ({
+    type: ActionType.ADD_TO_FAVORITES,
+    payload: offerId
   })
 };
 
@@ -67,9 +71,18 @@ const Operation = {
 
         dispatch(ActionCreator.loadOffers(offers));
         dispatch(ActionCreator.changeCity(city));
-        dispatch(ActionCreator.getOffers(city));
+        dispatch(ActionCreator.getOffers());
       });
   }
+};
+
+const tagOfferToFavorites = (offers, offerId) => {
+  offers.forEach((item) => {
+    if (item.id === offerId) {
+      item.isBookmark = !item.isBookmark;
+    }
+  });
+  return offers.slice();
 };
 
 const reducer = (state = initialState, action) => {
@@ -81,12 +94,17 @@ const reducer = (state = initialState, action) => {
 
     case ActionType.GET_OFFERS:
       return extend(state, {
-        currentOffers: getOffersInTheCity(action.payload, state.offers)
+        currentOffers: getOffersInTheCity(state.currentCity, state.offers)
       });
 
     case ActionType.LOAD_OFFERS:
       return extend(state, {
         offers: action.payload
+      });
+
+    case ActionType.ADD_TO_FAVORITES:
+      return extend(state, {
+        offers: tagOfferToFavorites(state.offers, action.payload)
       });
   }
 
