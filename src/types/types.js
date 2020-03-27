@@ -72,5 +72,9 @@ export const propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
   login: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
+  exact: PropTypes.bool.isRequired,
+  path: PropTypes.string.isRequired,
+  render: PropTypes.func.isRequired,
+  onFavoriteClick: PropTypes.func.isRequired,
 };

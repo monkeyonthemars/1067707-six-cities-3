@@ -8,6 +8,7 @@ it(`<PlacesList /> should render correctly`, () => {
       <PlacesList
         placesList={mocks.rentalOffers}
         onRentalTitleClick={() => {}}
+        onFavoriteClick={() => {}}
         onMouseEnter={() => {}}
         onMouseLeave={() => {}}
       />

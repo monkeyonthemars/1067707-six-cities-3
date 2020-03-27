@@ -39,7 +39,8 @@ exports[`<Main /> should render correctly 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/login"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"
@@ -280,6 +281,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -380,6 +382,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button place-card__bookmark-button--active button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -480,6 +483,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -580,6 +584,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button place-card__bookmark-button--active button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -680,6 +685,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -780,6 +786,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button place-card__bookmark-button--active button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -880,6 +887,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
@@ -980,6 +988,7 @@ exports[`<Main /> should render correctly 1`] = `
                     </div>
                     <button
                       className="place-card__bookmark-button place-card__bookmark-button--active button"
+                      onClick={[Function]}
                       type="button"
                     >
                       <svg
