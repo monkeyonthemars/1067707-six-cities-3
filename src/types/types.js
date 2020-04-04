@@ -19,6 +19,18 @@ export const propTypes = {
       zoom: PropTypes.number.isRequired,
     }).isRequired
   }).isRequired,
+  currentOffer: PropTypes.shape({
+    id: PropTypes.number,
+    mark: PropTypes.string,
+    image: PropTypes.string,
+    priceValue: PropTypes.number,
+    priceText: PropTypes.string,
+    isBookmark: PropTypes.bool,
+    rating: PropTypes.number,
+    title: PropTypes.string,
+    type: PropTypes.string,
+    coordinates: PropTypes.array
+  }),
   currentOffers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
@@ -30,7 +42,14 @@ export const propTypes = {
         rating: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired,
-        coordinates: PropTypes.array.isRequired
+        coordinates: PropTypes.array.isRequired,
+
+        bedrooms: PropTypes.number.isRequired,
+        description: PropTypes.string.isRequired,
+        goods: PropTypes.array.isRequired,
+        host: PropTypes.object.isRequired,
+        images: PropTypes.array.isRequired,
+        maxAdults: PropTypes.number.isRequired,
       })
   ).isRequired,
   placeCard: {
@@ -45,7 +64,7 @@ export const propTypes = {
     type: PropTypes.string.isRequired,
     onRentalTitleClick: PropTypes.func.isRequired,
     onMouseEnter: PropTypes.func.isRequired,
-    onMouseLeave: PropTypes.func.isRequired
+    onMouseLeave: PropTypes.func.isRequired,
   },
   placesList: PropTypes.arrayOf(
       PropTypes.shape({
@@ -77,4 +96,13 @@ export const propTypes = {
   path: PropTypes.string.isRequired,
   render: PropTypes.func.isRequired,
   onFavoriteClick: PropTypes.func.isRequired,
+  activePlaceCard: PropTypes.number.isRequired,
+  currentComments: PropTypes.array.isRequired,
+  comment: PropTypes.object.isRequired,
+  currentNearbyOffers: PropTypes.array.isRequired,
+  onSortTypeClick: PropTypes.func.isRequired,
+  onSubmitReviewClick: PropTypes.func.isRequired,
+  favorites: PropTypes.array.isRequired,
+  cityName: PropTypes.string.isRequired,
+  offers: PropTypes.array.isRequired
 };

@@ -2,11 +2,17 @@ import React, {PureComponent, createRef} from 'react';
 import leaflet from 'leaflet';
 import {propTypes} from '../../src/types/types.js';
 
-const ICON = leaflet.icon({
+const ZOOM_VALUE = 12;
+
+const dafaultIcon = leaflet.icon({
   iconUrl: `img/pin.svg`,
   iconSize: [30, 30]
 });
-const ZOOM_VALUE = 12;
+
+const activeIcon = leaflet.icon({
+  iconUrl: `img/pin-active.svg`,
+  iconSize: [30, 30]
+});
 
 class Map extends PureComponent {
   constructor(props) {
@@ -18,8 +24,11 @@ class Map extends PureComponent {
   componentDidMount() {
     const {
       cityCoordinates,
-      currentOffers
+      currentOffers,
+      activePlaceCard
     } = this.props;
+
+    this._activePlaceCard = activePlaceCard;
 
     this.map = leaflet.map(this._mapRef.current, {
       center: [cityCoordinates.latitude, cityCoordinates.longitude],
@@ -38,7 +47,7 @@ class Map extends PureComponent {
     this.markerLayers = [];
     currentOffers.map((rentalOffer) => (
       this.markerLayers.push(leaflet
-          .marker(rentalOffer.coordinates, {ICON})
+          .marker(rentalOffer.coordinates, rentalOffer.id === this.props.activePlaceCard ? {icon: activeIcon} : {icon: dafaultIcon})
           .addTo(this.map))
     ));
   }
@@ -52,19 +61,20 @@ class Map extends PureComponent {
 
     this.props.currentOffers.map((rentalOffer) => (
       this.markerLayers.push(leaflet
-          .marker(rentalOffer.coordinates, {ICON})
+          .marker(rentalOffer.coordinates, rentalOffer.id === this.props.activePlaceCard ? {icon: activeIcon} : {icon: dafaultIcon})
           .addTo(this.map))
     ));
   }
 
   render() {
-    return <section className="cities__map map" ref={this._mapRef} />;
+    return <div style={{height: `100%`}} ref={this._mapRef} />;
   }
 }
 
 Map.propTypes = {
   cityCoordinates: propTypes.cityCoordinates,
-  currentOffers: propTypes.currentOffers
+  currentOffers: propTypes.currentOffers,
+  activePlaceCard: propTypes.activePlaceCard
 };
 
 export default Map;

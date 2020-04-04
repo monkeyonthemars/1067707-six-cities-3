@@ -26,6 +26,8 @@ it(`<Main /> should render correctly`, () => {
           onCityClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}
+          onSortTypeClick={() => {}}
+          activePlaceCard={-1}
         />
       </Router>
   ).toJSON();

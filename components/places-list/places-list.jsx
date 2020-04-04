@@ -8,7 +8,7 @@ const PlacesList = (props) => {
     onRentalTitleClick,
     onFavoriteClick,
     onMouseEnter,
-    onMouseLeave
+    onMouseLeave,
   } = props;
 
   return (
@@ -43,7 +43,7 @@ PlacesList.propTypes = {
   onRentalTitleClick: propTypes.onRentalTitleClick,
   onFavoriteClick: propTypes.onFavoriteClick,
   onMouseEnter: propTypes.onMouseEnter,
-  onMouseLeave: propTypes.onMouseLeave
+  onMouseLeave: propTypes.onMouseLeave,
 };
 
 export default PlacesList;

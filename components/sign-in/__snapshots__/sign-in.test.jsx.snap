@@ -17,15 +17,14 @@ exports[`<SignIn /> should render correctly 1`] = `
           className="header__left"
         >
           <a
-            className="header__logo-link"
-            href="main.html"
+            className="header__logo-link header__logo-link--active"
           >
             <img
               alt="6 cities logo"
               className="header__logo"
-              height="41"
+              height={41}
               src="img/logo.svg"
-              width="81"
+              width={81}
             />
           </a>
         </div>
@@ -40,7 +39,8 @@ exports[`<SignIn /> should render correctly 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/login"
+                onClick={[Function]}
               >
                 <div
                   className="header__avatar-wrapper user__avatar-wrapper"

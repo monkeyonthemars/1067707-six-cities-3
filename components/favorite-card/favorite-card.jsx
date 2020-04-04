@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import {Link} from "react-router-dom";
 import {propTypes} from '../../src/types/types.js';
 import {AppRoute} from '../../src/const.js';
 
-const PlaceCard = (props) => {
+const FavoriteCard = (props) => {
+
   const {
     id,
     isPremium,
@@ -33,36 +34,42 @@ const PlaceCard = (props) => {
   const bookmarkStatus = isBookmark ? `0` : `1`;
 
   return (
-    <article className="cities__place-card place-card"
+
+    <article className="favorites__card place-card"
       onMouseEnter={() => {
         onMouseEnter(id);
       }}
       onMouseLeave={() => {
         onMouseLeave();
-      }}
-    >
+      }}>
       {markElement}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="favorites__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img
             className="place-card__image"
             src={`${image}`}
             alt="Place image"
-            width={260}
-            height={200}
+            width={150}
+            height={110}
           />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{priceValue}</b>
-            <span className="place-card__price-text">/&nbsp;{priceText}</span>
+            <span className="place-card__price-text">
+              /&nbsp;{priceText}
+            </span>
           </div>
           <button className={bookmarkClass} type="button" onClick={() => {
             onFavoriteClick(id, bookmarkStatus);
           }}>
-            <svg className="place-card__bookmark-icon" width={18} height={19}>
+            <svg
+              className="place-card__bookmark-icon"
+              width={18}
+              height={19}
+            >
               <use xlinkHref="#icon-bookmark" />
             </svg>
             <span className="visually-hidden">{bookmarkTitle}</span>
@@ -88,6 +95,6 @@ const PlaceCard = (props) => {
   );
 };
 
-PlaceCard.propTypes = propTypes.placeCard;
+FavoriteCard.propTypes = propTypes.placeCard;
 
-export default PlaceCard;
+export default FavoriteCard;

@@ -17,7 +17,7 @@ exports[`<PlaceCard /> should render correctly 1`] = `
         alt="Place image"
         className="place-card__image"
         height={200}
-        src="room.jpg"
+        src="apartment-02.jpg"
         width={260}
       />
     </a>
@@ -35,7 +35,7 @@ exports[`<PlaceCard /> should render correctly 1`] = `
           className="place-card__price-value"
         >
           €
-          32
+          120
         </b>
         <span
           className="place-card__price-text"
@@ -45,7 +45,7 @@ exports[`<PlaceCard /> should render correctly 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button place-card__bookmark-button--active button"
+        className="place-card__bookmark-button button"
         onClick={[Function]}
         type="button"
       >
@@ -61,7 +61,7 @@ exports[`<PlaceCard /> should render correctly 1`] = `
         <span
           className="visually-hidden"
         >
-          In bookmarks
+          To bookmarks
         </span>
       </button>
     </div>
@@ -74,7 +74,7 @@ exports[`<PlaceCard /> should render correctly 1`] = `
         <span
           style={
             Object {
-              "width": "100%",
+              "width": "2000%",
             }
           }
         />
@@ -90,15 +90,16 @@ exports[`<PlaceCard /> should render correctly 1`] = `
       onClick={[Function]}
     >
       <a
-        href="#"
+        href="/property/0"
+        onClick={[Function]}
       >
-        Room with a View on the park.
+        Luxury Tiny House, flowerbulb region nearby A'dam
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Private room
+      Apartment
     </p>
   </div>
 </article>

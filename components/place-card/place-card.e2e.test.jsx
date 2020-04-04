@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import PlaceCard from './place-card.jsx';
 import mocks from '../../src/mocks/offers-test.js';
 
-const rentalOffer = mocks.rentalOffers[3];
+const rentalOffer = mocks.rentalOffers[0];
 
 Enzyme.configure({
   adapter: new Adapter(),
