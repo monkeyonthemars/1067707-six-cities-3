@@ -39,8 +39,6 @@ const App = (props) => {
     favorites
   } = props;
 
-  console.log(currentOffer);
-
   return (
     <Router
       history={history}
@@ -73,6 +71,8 @@ const App = (props) => {
           exact
           path={`${AppRoute.PROPERTY}/:id`}
           render={({}) => {
+          // render={({match}) => {
+            // console.log(match.params.id);
             return (
               <Property
                 currentNearbyOffers={currentNearbyOffers}
@@ -168,7 +168,7 @@ const mapDispatchToProps = (dispatch) => ({
   onRentalTitleClick(offerId) {
     dispatch(DataActionCreator.getOffers());
     dispatch(DataActionCreator.setCurrentOffer(offerId));
-    dispatch(DataOperation.loadComments1(offerId));
+    dispatch(DataOperation.loadComments(offerId));
     dispatch(DataOperation.loadNearbyOffers(offerId));
   },
   onSortTypeClick(sortType) {

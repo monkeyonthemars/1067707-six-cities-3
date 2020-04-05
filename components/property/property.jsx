@@ -29,7 +29,7 @@ const Property = (props) => {
     ? `property__bookmark-button button--active button`
     : `property__bookmark-button button`;
 
-  const hostClassName = currentOffer.host.is_pro
+  const hostClassName = currentOffer.host.isPro
     ? `property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper`
     : `property__avatar-wrapper user__avatar-wrapper`;
 
@@ -120,7 +120,7 @@ const Property = (props) => {
                   <div className={hostClassName}>
                     <img
                       className="property__avatar user__avatar"
-                      src={currentOffer.host.avatar_url}
+                      src={currentOffer.host.avatarUrl}
                       alt="Host avatar"
                       width={74}
                       height={74}

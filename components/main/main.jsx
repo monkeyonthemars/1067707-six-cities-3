@@ -7,8 +7,7 @@ import PlacesList from '../places-list/places-list.jsx';
 import Sort from '../sort/sort.jsx';
 import EmptyMain from '../empty-main/empty-main.jsx';
 import Header from '../header/header.jsx';
-import {AppRoute} from '../../src/const.js';
-import {AuthorizationStatus} from '../../src/const.js';
+import {AppRoute, AuthorizationStatus} from '../../src/const.js';
 
 const Main = (props) => {
   const {

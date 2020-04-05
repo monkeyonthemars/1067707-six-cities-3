@@ -1,11 +1,19 @@
 import React, {createRef} from "react";
-import { propTypes } from "../../src/types/types";
+import {propTypes} from "../../src/types/types";
+
+const ReviewsMinMaxLength = {
+  MIN_REVIEW_LENGTH: 50,
+  MAX_REVIEW_LENGTH: 300,
+};
 
 const NewReviewForm = (props) => {
 
-  const {activePlaceCard, onSubmitReviewClick} = props;
+  const {
+    activePlaceCard,
+    onSubmitReviewClick,
+  } = props;
 
-  let ratingRef = 0;
+  let userRating = 0;
   const reviewRef = createRef();
 
   const handleSubmit = (evt) => {
@@ -13,13 +21,21 @@ const NewReviewForm = (props) => {
 
     onSubmitReviewClick({
       offerId: activePlaceCard,
-      rating: ratingRef,
+      rating: userRating,
       review: reviewRef.current.value,
     });
   };
 
+  let isSubmitButtonDisabled = true;
+
   const onChangeRating = (evt) => {
-    ratingRef = evt.target.value;
+    userRating = evt.target.value;
+
+    isSubmitButtonDisabled = !(
+      userRating > 0 &&
+      reviewRef.current.value.length >= ReviewsMinMaxLength.MIN_REVIEW_LENGTH &&
+      reviewRef.current.value.length <= ReviewsMinMaxLength.MAX_REVIEW_LENGTH
+    );
   };
 
   return (
@@ -146,6 +162,7 @@ const NewReviewForm = (props) => {
         <button
           className="reviews__submit form__submit button"
           type="submit"
+          disabled={isSubmitButtonDisabled}
         >
           Submit
         </button>
@@ -156,7 +173,7 @@ const NewReviewForm = (props) => {
 
 NewReviewForm.propTypes = {
   activePlaceCard: propTypes.activePlaceCard,
-  onSubmitReviewClick: propTypes.onSubmitReviewClick
+  onSubmitReviewClick: propTypes.onSubmitReviewClick,
 };
 
 export default NewReviewForm;

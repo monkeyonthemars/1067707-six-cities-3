@@ -1,5 +1,4 @@
-import uniqueCities from '../../mocks/offers.js';
-import {DEFAULT_CITY_INDEX, SortType} from '../../const.js';
+import {DEFAULT_CITY_INDEX, SortType, uniqueCities} from '../../const.js';
 
 const getOffersInTheCity = (city, offers) => {
   return offers.slice().filter((offer) => {
@@ -84,23 +83,23 @@ const Operation = {
   loadOffers: () => (dispatch, getState, api) => {
     return api.get(`/hotels`)
       .then((response) => {
-        const offers = toRAW(response.data);
+        const offers = offersAdapter(response.data);
         const city = uniqueCities[DEFAULT_CITY_INDEX];
 
         dispatch(ActionCreator.loadOffers(offers));
         dispatch(ActionCreator.changeCity(city));
       });
   },
-  loadComments1: (offerId) => (dispatch, getState, api) => {
+  loadComments: (offerId) => (dispatch, getState, api) => {
     return api.get(`/comments/` + offerId)
       .then((response) => {
-        dispatch(ActionCreator.loadComments(response.data));
+        dispatch(ActionCreator.loadComments(commentsAdapter(response.data)));
       });
   },
   loadNearbyOffers: (offerId) => (dispatch, getState, api) => {
     return api.get(`/hotels/` + offerId + `/nearby`)
       .then((response) => {
-        dispatch(ActionCreator.loadNearbyOffers(toRAW(response.data)));
+        dispatch(ActionCreator.loadNearbyOffers(offersAdapter(response.data)));
       });
   },
   pushComment: (comment) => (dispatch, getState, api) => {
@@ -109,7 +108,7 @@ const Operation = {
       rating: comment.rating,
     })
       .then(() => {
-        dispatch(Operation.loadComments1(comment.offerId));
+        dispatch(Operation.loadComments(comment.offerId));
       })
       .catch((err) => {
         throw err;
@@ -118,7 +117,7 @@ const Operation = {
   loadFavorites: () => (dispatch, getState, api) => {
     return api.get(`/favorite`)
       .then((response) => {
-        dispatch(ActionCreator.loadFavorites(toRAW(response.data)));
+        dispatch(ActionCreator.loadFavorites(offersAdapter(response.data)));
       });
   },
   addToFavorites: (offerId, status) => (dispatch, getState, api) => {
@@ -192,7 +191,7 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-const toRAW = (offers) => {
+const offersAdapter = (offers) => {
   return offers.map((offer) => {
     return {
       id: offer.id,
@@ -209,10 +208,32 @@ const toRAW = (offers) => {
       bedrooms: offer.bedrooms,
       description: offer.description,
       goods: offer.goods,
-      host: offer.host,
+      host: {
+        avatarUrl: offer.host.avatar_url,
+        id: offer.host.id,
+        isPro: offer.host.is_pro,
+        name: offer.host.name
+      },
       images: offer.images,
       maxAdults: offer.max_adults,
       ratingText: offer.rating
+    };
+  });
+};
+
+const commentsAdapter = (comments) => {
+  return comments.map((comment) => {
+    return {
+      comment: comment.comment,
+      date: comment.date,
+      id: comment.id,
+      rating: comment.rating,
+      user: {
+        avatarUrl: comment.user.avatar_url,
+        id: comment.user.id,
+        isPro: comment.user.is_pro,
+        name: comment.user.name
+      }
     };
   });
 };

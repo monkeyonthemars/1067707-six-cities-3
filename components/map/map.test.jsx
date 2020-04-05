@@ -8,6 +8,7 @@ it(`<Map /> render correctly`, () => {
       <Map
         cityCoordinates={mocks.currentCity.location}
         currentOffers={mocks.rentalOffers}
+        activePlaceCard={-1}
       />
   ).toJSON();
 

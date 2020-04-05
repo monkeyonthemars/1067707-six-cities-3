@@ -5,13 +5,18 @@ const ReviewsItem = (props) => {
 
   const {comment} = props;
 
+  const dateOptions = {
+    year: `numeric`,
+    month: `long`
+  };
+
   return (
     <li className="reviews__item">
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
           <img
             className="reviews__avatar user__avatar"
-            src={comment.user.avatar_url}
+            src={comment.user.avatarUrl}
             alt="Reviews avatar"
             width={54}
             height={54}
@@ -22,7 +27,7 @@ const ReviewsItem = (props) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: `${comment.rating * 20}%`}} />
+            <span style={{width: `${Math.round(comment.rating) * 20}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -30,7 +35,7 @@ const ReviewsItem = (props) => {
           {comment.comment}
         </p>
         <time className="reviews__time" dateTime={comment.date}>
-          {comment.date}
+          {new Date(comment.date).toLocaleString(`en-US`, dateOptions)}
         </time>
       </div>
     </li>

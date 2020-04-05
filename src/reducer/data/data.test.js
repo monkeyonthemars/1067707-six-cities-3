@@ -1,4 +1,4 @@
-import uniqueCities from '../../mocks/offers.js';
+import {uniqueCities, SortType} from '../../const.js';
 import {reducer, ActionCreator, ActionType} from './data.js';
 
 const DEFAULT_CITY_INDEX = 0;
@@ -8,7 +8,12 @@ it(`Reducer without additional parameters should return initial state`, () => {
     cities: uniqueCities,
     currentCity: uniqueCities[DEFAULT_CITY_INDEX],
     currentOffers: [],
-    offers: []
+    offers: [],
+    currentOffer: {},
+    currentComments: [],
+    currentNearbyOffers: [],
+    currentSortType: SortType.POPULAR,
+    favorites: []
   });
 });
 

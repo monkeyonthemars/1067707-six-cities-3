@@ -23,6 +23,14 @@ describe(`Render App`, () => {
           onCityClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}
+          currentNearbyOffers={[]}
+          currentOffer={mocks.rentalOffers[0]}
+          currentComments={[]}
+          onSortTypeClick={() => {}}
+          activePlaceCard={-1}
+          onSubmitReviewClick={() => {}}
+          favorites={[]}
+          offers={mocks.rentalOffers}
         />
     ).toJSON();
 
