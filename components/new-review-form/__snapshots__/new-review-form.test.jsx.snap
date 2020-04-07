@@ -17,8 +17,10 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
     className="reviews__rating-form form__rating"
   >
     <input
+      checked={false}
       className="form__rating-input visually-hidden"
       defaultValue={5}
+      disabled={false}
       id="5-stars"
       name="rating"
       onChange={[Function]}
@@ -40,8 +42,10 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
       </svg>
     </label>
     <input
+      checked={false}
       className="form__rating-input visually-hidden"
       defaultValue={4}
+      disabled={false}
       id="4-stars"
       name="rating"
       onChange={[Function]}
@@ -63,8 +67,10 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
       </svg>
     </label>
     <input
+      checked={false}
       className="form__rating-input visually-hidden"
       defaultValue={3}
+      disabled={false}
       id="3-stars"
       name="rating"
       onChange={[Function]}
@@ -86,8 +92,10 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
       </svg>
     </label>
     <input
+      checked={false}
       className="form__rating-input visually-hidden"
       defaultValue={2}
+      disabled={false}
       id="2-stars"
       name="rating"
       onChange={[Function]}
@@ -109,8 +117,10 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
       </svg>
     </label>
     <input
+      checked={false}
       className="form__rating-input visually-hidden"
       defaultValue={1}
+      disabled={false}
       id="1-star"
       name="rating"
       onChange={[Function]}
@@ -134,10 +144,12 @@ exports[`<NewReviewForm /> should render correctly 1`] = `
   </div>
   <textarea
     className="reviews__textarea form__textarea"
-    defaultValue=""
+    disabled={false}
     id="review"
     name="review"
+    onChange={[Function]}
     placeholder="Tell how was your stay, what you like and what can be improved"
+    value=""
   />
   <div
     className="reviews__button-wrapper"

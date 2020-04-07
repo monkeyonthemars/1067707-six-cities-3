@@ -2,13 +2,28 @@ import React from 'react';
 import {Switch, Route, Router} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {propTypes} from '../../src/types/types.js';
-import {Operation as UserOperation} from "../../src/reducer/user/user";
+import {Operation as UserOperation} from "../../src/reducer/user/user.js";
 import {ActionCreator as DataActionCreator} from '../../src/reducer/data/data.js';
 import {Operation as DataOperation} from '../../src/reducer/data/data.js';
 import {ActionCreator as OffersActionCreator} from '../../src/reducer/offers/offers.js';
-import {getCurrentCity, getCurrentOffers, getCurrentOffer, getCurrentComments, getNearbyOffers, getCities, getFavorites, getOffers} from '../../src/reducer/data/selectors.js';
+import {
+  getCurrentCity,
+  getCurrentOffers,
+  getCurrentOffer,
+  getCurrentComments,
+  getNearbyOffers,
+  getCities,
+  getFavorites,
+  getOffers,
+  getCurrentRating,
+  getCurrentReview
+} from '../../src/reducer/data/selectors.js';
 import {getAuthorizationStatus, getAuthorizationEmail} from '../../src/reducer/user/selectors.js';
-import {getActivePlaceCard} from '../../src/reducer/offers/selectors.js';
+import {
+  getActivePlaceCard,
+  getSubmitButtonStatus,
+  getSendingStatus
+} from '../../src/reducer/offers/selectors.js';
 import history from '../../src/history.js';
 import {AppRoute} from '../../src/const.js';
 import PrivateRoute from '../private-route/private-route.jsx';
@@ -16,6 +31,7 @@ import SignIn from '../sign-in/sign-in.jsx';
 import Main from '../main/main.jsx';
 import Favorites from '../favorites/favorites.jsx';
 import Property from '../property/property.jsx';
+import {getOfferById} from '../../src/utils.js';
 
 const App = (props) => {
   const {
@@ -29,14 +45,20 @@ const App = (props) => {
     onMouseLeave,
     currentOffers,
     currentNearbyOffers,
-    currentOffer,
     currentComments,
     currentCity,
     cities,
     onSortTypeClick,
     activePlaceCard,
     onSubmitReviewClick,
-    favorites
+    favorites,
+    onChangeNewReviewForm,
+    submitButtonDisabled,
+    isSending,
+    review,
+    rating,
+    offers,
+    loadOfferDetails
   } = props;
 
   return (
@@ -70,24 +92,39 @@ const App = (props) => {
         <Route
           exact
           path={`${AppRoute.PROPERTY}/:id`}
-          render={({}) => {
-          // render={({match}) => {
-            // console.log(match.params.id);
-            return (
-              <Property
-                currentNearbyOffers={currentNearbyOffers}
-                currentOffer={currentOffer}
-                currentComments={currentComments}
-                onRentalTitleClick={onRentalTitleClick}
-                onFavoriteClick={onFavoriteClick}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-                activePlaceCard={activePlaceCard}
-                authorizationStatus={authorizationStatus}
-                onSubmitReviewClick={onSubmitReviewClick}
-                email={email}
-              />
-            );
+          render={({match}) => {
+            const id = Number(match.params.id);
+            const offer = getOfferById(offers, id);
+            if (currentNearbyOffers.length === 0
+              && currentComments.length === 0) {
+              loadOfferDetails(id);
+            }
+            if (offer !== undefined) {
+              return (
+                <Property
+                  currentNearbyOffers={currentNearbyOffers}
+                  currentOffer={offer}
+                  currentComments={currentComments}
+                  activePlaceCard={id}
+
+                  authorizationStatus={authorizationStatus}
+                  email={email}
+
+                  onSubmitReviewClick={onSubmitReviewClick}
+                  onChangeNewReviewForm={onChangeNewReviewForm}
+                  onRentalTitleClick={onRentalTitleClick}
+                  onFavoriteClick={onFavoriteClick}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                  submitButtonDisabled={submitButtonDisabled}
+                  isSending={isSending}
+                  review={review}
+                  rating={rating
+                  }
+                />
+              );
+            }
+            return (``);
           }}
         />
         <PrivateRoute exact path={AppRoute.FAVORITES} render={() => {
@@ -128,7 +165,13 @@ App.propTypes = {
   onSortTypeClick: propTypes.onSortTypeClick,
   onSubmitReviewClick: propTypes.onSubmitReviewClick,
   favorites: propTypes.favorites,
-  offers: propTypes.offers
+  offers: propTypes.offers,
+  onChangeNewReviewForm: propTypes.onChangeNewReviewForm,
+  submitButtonDisabled: propTypes.submitButtonDisabled,
+  isSending: propTypes.isSending,
+  review: propTypes.review,
+  rating: propTypes.rating,
+  loadOfferDetails: propTypes.loadOfferDetails
 };
 
 const mapStateToProps = (state) => ({
@@ -142,7 +185,11 @@ const mapStateToProps = (state) => ({
   currentNearbyOffers: getNearbyOffers(state),
   activePlaceCard: getActivePlaceCard(state),
   favorites: getFavorites(state),
-  offers: getOffers(state)
+  offers: getOffers(state),
+  submitButtonDisabled: getSubmitButtonStatus(state),
+  isSending: getSendingStatus(state),
+  review: getCurrentReview(state),
+  rating: getCurrentRating(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -174,9 +221,20 @@ const mapDispatchToProps = (dispatch) => ({
   onSortTypeClick(sortType) {
     dispatch(DataActionCreator.setCurrentSortType(sortType));
   },
-  onSubmitReviewClick(comment) {
+  onSubmitReviewClick(comment, isSending) {
+    dispatch(OffersActionCreator.changeSendingStatus(isSending));
     dispatch(DataOperation.pushComment(comment));
+    dispatch(OffersActionCreator.changeSendingStatus(false));
   },
+  onChangeNewReviewForm(buttonStatus, review, rating) {
+    dispatch(OffersActionCreator.changeSubmitButtonStatus(buttonStatus));
+    dispatch(DataActionCreator.setCurrentReview(review));
+    dispatch(DataActionCreator.setCurrentRating(rating));
+  },
+  loadOfferDetails(offerId) {
+    dispatch(DataOperation.loadComments(offerId));
+    dispatch(DataOperation.loadNearbyOffers(offerId));
+  }
 
 });
 

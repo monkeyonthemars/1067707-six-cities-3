@@ -31,6 +31,12 @@ describe(`Render App`, () => {
           onSubmitReviewClick={() => {}}
           favorites={[]}
           offers={mocks.rentalOffers}
+          onChangeNewReviewForm={() => {}}
+          submitButtonDisabled={true}
+          isSending={false}
+          review={``}
+          rating={0}
+          loadOfferDetails={() => {}}
         />
     ).toJSON();
 

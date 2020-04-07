@@ -9,6 +9,11 @@ it(`<NewReviewForm /> should render correctly`, () => {
         <NewReviewForm
           activePlaceCard={-1}
           onSubmitReviewClick={() => {}}
+          onChangeNewReviewForm={() => {}}
+          submitButtonDisabled={true}
+          isSending={false}
+          review={``}
+          rating={0}
         />
       </MemoryRouter>
   ).toJSON();

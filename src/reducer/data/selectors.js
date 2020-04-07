@@ -39,6 +39,14 @@ export const getCities = (state) => {
   return state[NameSpace.DATA].cities;
 };
 
+export const getCurrentReview = (state) => {
+  return state[NameSpace.DATA].review;
+};
+
+export const getCurrentRating = (state) => {
+  return state[NameSpace.DATA].rating;
+};
+
 export const getCurrentOffers = createSelector(
     getCurrentCity,
     getOffers,

@@ -13,7 +13,9 @@ it(`Reducer without additional parameters should return initial state`, () => {
     currentComments: [],
     currentNearbyOffers: [],
     currentSortType: SortType.POPULAR,
-    favorites: []
+    favorites: [],
+    review: ``,
+    rating: 0
   });
 });
 

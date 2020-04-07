@@ -104,5 +104,11 @@ export const propTypes = {
   onSubmitReviewClick: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,
   cityName: PropTypes.string.isRequired,
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  onChangeNewReviewForm: PropTypes.func.isRequired,
+  submitButtonDisabled: PropTypes.bool.isRequired,
+  isSending: PropTypes.bool.isRequired,
+  review: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  loadOfferDetails: PropTypes.func.isRequired
 };

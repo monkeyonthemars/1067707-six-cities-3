@@ -1,4 +1,5 @@
 import {DEFAULT_CITY_INDEX, SortType, uniqueCities} from '../../const.js';
+import {getOfferById} from '../../utils.js';
 
 const getOffersInTheCity = (city, offers) => {
   return offers.slice().filter((offer) => {
@@ -15,7 +16,9 @@ const initialState = {
   currentComments: [],
   currentNearbyOffers: [],
   currentSortType: SortType.POPULAR,
-  favorites: []
+  favorites: [],
+  review: ``,
+  rating: 0
 };
 
 const extend = (a, b) => {
@@ -31,7 +34,9 @@ const ActionType = {
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   LOAD_NEARBY_OFFERS: `LOAD_NEARBY_OFFERS`,
   SET_CURRENT_SORT_TYPE: `SET_CURRENT_SORT_TYPE`,
-  LOAD_FAVORITES: `LOAD_FAVORITES`
+  LOAD_FAVORITES: `LOAD_FAVORITES`,
+  SET_CURRENT_REVIEW: `SET_CURRENT_REVIEW`,
+  SET_CURRENT_RATING: `SET_CURRENT_RATING`
 };
 
 const ActionCreator = {
@@ -70,13 +75,15 @@ const ActionCreator = {
   loadFavorites: (favorites) => ({
     type: ActionType.LOAD_FAVORITES,
     payload: favorites
-  })
-};
-
-const getOfferById = (offers, offerId) => {
-  return offers.find((item) => {
-    return item.id === offerId;
-  });
+  }),
+  setCurrentReview: (review) => ({
+    type: ActionType.SET_CURRENT_REVIEW,
+    payload: review
+  }),
+  setCurrentRating: (rating) => ({
+    type: ActionType.SET_CURRENT_RATING,
+    payload: rating
+  }),
 };
 
 const Operation = {
@@ -104,11 +111,13 @@ const Operation = {
   },
   pushComment: (comment) => (dispatch, getState, api) => {
     return api.post(`/comments/${comment.offerId}`, {
-      comment: comment.review,
-      rating: comment.rating,
+      comment: comment.userReview,
+      rating: comment.userRating,
     })
       .then(() => {
         dispatch(Operation.loadComments(comment.offerId));
+        dispatch(ActionCreator.setCurrentReview(``));
+        dispatch(ActionCreator.setCurrentRating(0));
       })
       .catch((err) => {
         throw err;
@@ -185,6 +194,16 @@ const reducer = (state = initialState, action) => {
     case ActionType.LOAD_FAVORITES:
       return extend(state, {
         favorites: action.payload
+      });
+
+    case ActionType.SET_CURRENT_REVIEW:
+      return extend(state, {
+        review: action.payload
+      });
+
+    case ActionType.SET_CURRENT_RATING:
+      return extend(state, {
+        rating: action.payload
       });
   }
 

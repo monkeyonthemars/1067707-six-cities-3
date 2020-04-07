@@ -20,7 +20,12 @@ const Property = (props) => {
     activePlaceCard,
     authorizationStatus,
     onSubmitReviewClick,
-    email
+    email,
+    onChangeNewReviewForm,
+    submitButtonDisabled,
+    isSending,
+    review,
+    rating
   } = props;
 
   const bookmarkStatus = currentOffer.isBookmark ? `0` : `1`;
@@ -143,6 +148,11 @@ const Property = (props) => {
                     <NewReviewForm
                       activePlaceCard={activePlaceCard}
                       onSubmitReviewClick={onSubmitReviewClick}
+                      onChangeNewReviewForm={onChangeNewReviewForm}
+                      submitButtonDisabled={submitButtonDisabled}
+                      isSending={isSending}
+                      review={review}
+                      rating={rating}
                     />
                     : ``
                 }
@@ -189,7 +199,12 @@ Property.propTypes = {
   activePlaceCard: propTypes.activePlaceCard,
   authorizationStatus: propTypes.authorizationStatus,
   onSubmitReviewClick: propTypes.onSubmitReviewClick,
-  email: propTypes.email
+  email: propTypes.email,
+  onChangeNewReviewForm: propTypes.onChangeNewReviewForm,
+  submitButtonDisabled: propTypes.submitButtonDisabled,
+  isSending: propTypes.isSending,
+  review: propTypes.review,
+  rating: propTypes.rating
 };
 
 export default Property;

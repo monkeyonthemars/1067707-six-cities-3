@@ -1,4 +1,4 @@
-import React, {createRef} from "react";
+import React from "react";
 import {propTypes} from "../../src/types/types";
 
 const ReviewsMinMaxLength = {
@@ -11,31 +11,46 @@ const NewReviewForm = (props) => {
   const {
     activePlaceCard,
     onSubmitReviewClick,
+    onChangeNewReviewForm,
+    submitButtonDisabled,
+    isSending,
+    review,
+    rating
   } = props;
-
-  let userRating = 0;
-  const reviewRef = createRef();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
     onSubmitReviewClick({
       offerId: activePlaceCard,
-      rating: userRating,
-      review: reviewRef.current.value,
-    });
+      userRating: rating,
+      userReview: review,
+    }, true);
   };
 
-  let isSubmitButtonDisabled = true;
+  const onChangeReview = (evt) => {
+    onChangeForm(
+        !(rating > 0 &&
+        review.length >= ReviewsMinMaxLength.MIN_REVIEW_LENGTH &&
+        review.length <= ReviewsMinMaxLength.MAX_REVIEW_LENGTH
+        ),
+        evt.target.value,
+        rating
+    );
+  };
 
   const onChangeRating = (evt) => {
-    userRating = evt.target.value;
+    onChangeForm(
+        !(rating > 0 &&
+        review.length >= ReviewsMinMaxLength.MIN_REVIEW_LENGTH &&
+        review.length <= ReviewsMinMaxLength.MAX_REVIEW_LENGTH
+        ),
+        review,
+        Number(evt.target.value));
+  };
 
-    isSubmitButtonDisabled = !(
-      userRating > 0 &&
-      reviewRef.current.value.length >= ReviewsMinMaxLength.MIN_REVIEW_LENGTH &&
-      reviewRef.current.value.length <= ReviewsMinMaxLength.MAX_REVIEW_LENGTH
-    );
+  const onChangeForm = (buttonStatus, userReview, userRating) => {
+    onChangeNewReviewForm(buttonStatus, userReview, userRating);
   };
 
   return (
@@ -57,6 +72,8 @@ const NewReviewForm = (props) => {
           onChange={(evt) => {
             onChangeRating(evt);
           }}
+          disabled={isSending}
+          checked={rating === 5}
         />
         <label
           htmlFor="5-stars"
@@ -76,6 +93,8 @@ const NewReviewForm = (props) => {
           onChange={(evt) => {
             onChangeRating(evt);
           }}
+          disabled={isSending}
+          checked={rating === 4}
         />
         <label
           htmlFor="4-stars"
@@ -95,6 +114,8 @@ const NewReviewForm = (props) => {
           onChange={(evt) => {
             onChangeRating(evt);
           }}
+          disabled={isSending}
+          checked={rating === 3}
         />
         <label
           htmlFor="3-stars"
@@ -114,6 +135,8 @@ const NewReviewForm = (props) => {
           onChange={(evt) => {
             onChangeRating(evt);
           }}
+          disabled={isSending}
+          checked={rating === 2}
         />
         <label
           htmlFor="2-stars"
@@ -133,6 +156,8 @@ const NewReviewForm = (props) => {
           onChange={(evt) => {
             onChangeRating(evt);
           }}
+          disabled={isSending}
+          checked={rating === 1}
         />
         <label
           htmlFor="1-star"
@@ -149,8 +174,11 @@ const NewReviewForm = (props) => {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        defaultValue={``}
-        ref={reviewRef}
+        onChange={(evt) => {
+          onChangeReview(evt);
+        }}
+        disabled={isSending}
+        value={review}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -162,7 +190,7 @@ const NewReviewForm = (props) => {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled={isSubmitButtonDisabled}
+          disabled={submitButtonDisabled}
         >
           Submit
         </button>
@@ -174,6 +202,11 @@ const NewReviewForm = (props) => {
 NewReviewForm.propTypes = {
   activePlaceCard: propTypes.activePlaceCard,
   onSubmitReviewClick: propTypes.onSubmitReviewClick,
+  onChangeNewReviewForm: propTypes.onChangeNewReviewForm,
+  submitButtonDisabled: propTypes.submitButtonDisabled,
+  isSending: propTypes.isSending,
+  review: propTypes.review,
+  rating: propTypes.rating
 };
 
 export default NewReviewForm;

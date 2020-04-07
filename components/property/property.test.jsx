@@ -20,6 +20,11 @@ it(`<Property /> should render correctly`, () => {
           authorizationStatus={AuthorizationStatus.NO_AUTH}
           onSubmitReviewClick={() => {}}
           email={mocks.email}
+          onChangeNewReviewForm={() => {}}
+          submitButtonDisabled={true}
+          isSending={false}
+          review={``}
+          rating={0}
         />
       </MemoryRouter>
   ).toJSON();
