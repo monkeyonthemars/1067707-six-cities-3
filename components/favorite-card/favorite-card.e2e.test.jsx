@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import PlaceCard from './place-card.jsx';
+import FavoriteCard from './favorite-card.jsx';
 import mocks from '../../src/mocks/offers-test.js';
 
 const rentalOffer = mocks.rentalOffers[0];
@@ -13,8 +13,8 @@ Enzyme.configure({
 it(`Handler should get data on hover`, () => {
   const mouseEnterHandler = jest.fn();
 
-  const rentalOfferCard = shallow(
-      <PlaceCard
+  const favoriteCard = shallow(
+      <FavoriteCard
         id={rentalOffer.id}
         mark={rentalOffer.mark}
         image={rentalOffer.image}
@@ -30,15 +30,15 @@ it(`Handler should get data on hover`, () => {
       />
   );
 
-  rentalOfferCard.find(`.place-card`).props().onMouseEnter();
+  favoriteCard.find(`.favorites__card`).props().onMouseEnter();
   expect(mouseEnterHandler.mock.calls.length).toBe(1);
 });
 
 it(`Handler should get data on mouse leave`, () => {
   const mouseLeaveHandler = jest.fn();
 
-  const rentalOfferCard = shallow(
-      <PlaceCard
+  const favoriteCard = shallow(
+      <FavoriteCard
         id={rentalOffer.id}
         mark={rentalOffer.mark}
         image={rentalOffer.image}
@@ -54,15 +54,15 @@ it(`Handler should get data on mouse leave`, () => {
       />
   );
 
-  rentalOfferCard.find(`.place-card`).props().onMouseLeave();
+  favoriteCard.find(`.favorites__card`).props().onMouseLeave();
   expect(mouseLeaveHandler.mock.calls.length).toBe(1);
 });
 
 it(`Handler should get data on click`, () => {
   const rentalTitleClickHandler = jest.fn();
 
-  const rentalOfferCard = shallow(
-      <PlaceCard
+  const favoriteCard = shallow(
+      <FavoriteCard
         id={rentalOffer.id}
         mark={rentalOffer.mark}
         image={rentalOffer.image}
@@ -78,6 +78,6 @@ it(`Handler should get data on click`, () => {
       />
   );
 
-  rentalOfferCard.find(`.place-card__name`).props().onClick();
+  favoriteCard.find(`.place-card__name`).props().onClick();
   expect(rentalTitleClickHandler.mock.calls.length).toBe(1);
 });

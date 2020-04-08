@@ -34,6 +34,8 @@ it(`Should titles be clicked`, () => {
           onCityClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}
+          onSortTypeClick={() => {}}
+          activePlaceCard={-1}
           isActiveMenu={false}
           onSortMenuClick={() => {}}
           currentSortType={SortType.POPULAR}
