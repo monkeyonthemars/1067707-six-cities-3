@@ -2,7 +2,7 @@ import React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import ReviewsItem from './reviews-item.jsx';
-import mocks from '../../src/mocks/offers-test.js';
+import * as mocks from '../../src/mocks/offers-test.js';
 
 it(`<ReviewsItem /> should render correctly`, () => {
   const tree = renderer.create(

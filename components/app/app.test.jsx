@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {App} from './app.jsx';
-import mocks from '../../src/mocks/offers-test.js';
+import * as mocks from '../../src/mocks/offers-test.js';
 import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {

@@ -4,7 +4,7 @@ import history from '../../src/history.js';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Main from './main.jsx';
-import mocks from '../../src/mocks/offers-test.js';
+import * as mocks from '../../src/mocks/offers-test.js';
 import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {

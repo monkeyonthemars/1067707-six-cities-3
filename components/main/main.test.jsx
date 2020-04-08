@@ -3,7 +3,7 @@ import {Router} from 'react-router-dom';
 import history from '../../src/history.js';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
-import mocks from '../../src/mocks/offers-test.js';
+import * as mocks from '../../src/mocks/offers-test.js';
 import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {

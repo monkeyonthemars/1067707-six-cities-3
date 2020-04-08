@@ -336,4 +336,4 @@ const email = `test@test.com`;
 
 const review = `I stayed here for one night and it was an unpleasant experience.`;
 
-export default {cities, rentalOffers, currentCity, email, comments, review};
+export {cities, rentalOffers, currentCity, email, comments, review};

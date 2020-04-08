@@ -1,7 +1,7 @@
 import {uniqueCities, SortType} from '../../const.js';
 import {reducer, ActionCreator, ActionType} from './data.js';
-import {rentalOffers, comments, review} from '../../mocks/offers-test.js';
-// import {tagOfferToFavorites} from '../../utils.js';
+import * as mocks from '../../mocks/offers-test.js';
+import {tagOfferToFavorites} from '../../utils.js';
 
 const DEFAULT_CITY_INDEX = 0;
 const DEFAULT_RATING = 5;
@@ -76,14 +76,14 @@ it(`Reducer should load offers`, () => {
           },
           {
             type: ActionType.LOAD_OFFERS,
-            payload: rentalOffers,
+            payload: mocks.rentalOffers,
           }
       )
   ).toEqual({
     cities: uniqueCities,
     currentCity: uniqueCities[DEFAULT_CITY_INDEX],
     currentOffers: [],
-    offers: rentalOffers,
+    offers: mocks.rentalOffers,
     currentOffer: {},
     currentComments: [],
     currentNearbyOffers: [],
@@ -94,77 +94,77 @@ it(`Reducer should load offers`, () => {
   });
 });
 
-// it(`Reducer should add to favorites`, () => {
-//   expect(
-//       reducer(
-//           {
-//             cities: uniqueCities,
-//             currentCity: uniqueCities[DEFAULT_CITY_INDEX],
-//             currentOffers: [],
-//             offers: rentalOffers,
-//             currentOffer: {},
-//             currentComments: [],
-//             currentNearbyOffers: [],
-//             currentSortType: SortType.POPULAR,
-//             favorites: [],
-//             review: ``,
-//             rating: 0
-//           },
-//           {
-//             type: ActionType.ADD_TO_FAVORITES,
-//             payload: 0,
-//           }
-//       )
-//   ).toEqual({
-//     cities: uniqueCities,
-//     currentCity: uniqueCities[DEFAULT_CITY_INDEX],
-//     currentOffers: [],
-//     offers: tagOfferToFavorites(rentalOffers, 0),
-//     currentOffer: {},
-//     currentComments: [],
-//     currentNearbyOffers: [],
-//     currentSortType: SortType.POPULAR,
-//     favorites: [],
-//     review: ``,
-//     rating: 0
-//   });
-// });
+it(`Reducer should add to favorites`, () => {
+  expect(
+      reducer(
+          {
+            cities: uniqueCities,
+            currentCity: uniqueCities[DEFAULT_CITY_INDEX],
+            currentOffers: [],
+            offers: mocks.rentalOffers,
+            currentOffer: {},
+            currentComments: [],
+            currentNearbyOffers: [],
+            currentSortType: SortType.POPULAR,
+            favorites: [],
+            review: ``,
+            rating: 0
+          },
+          {
+            type: ActionType.ADD_TO_FAVORITES,
+            payload: 0,
+          }
+      )
+  ).toEqual({
+    cities: uniqueCities,
+    currentCity: uniqueCities[DEFAULT_CITY_INDEX],
+    currentOffers: [],
+    offers: tagOfferToFavorites(mocks.rentalOffers, 0),
+    currentOffer: {},
+    currentComments: [],
+    currentNearbyOffers: [],
+    currentSortType: SortType.POPULAR,
+    favorites: [],
+    review: ``,
+    rating: 0
+  });
+});
 
-// it(`Reducer should set current offer`, () => {
-//   expect(
-//       reducer(
-//           {
-//             cities: uniqueCities,
-//             currentCity: uniqueCities[DEFAULT_CITY_INDEX],
-//             currentOffers: rentalOffers,
-//             offers: [],
-//             currentOffer: {},
-//             currentComments: [],
-//             currentNearbyOffers: [],
-//             currentSortType: SortType.POPULAR,
-//             favorites: [],
-//             review: ``,
-//             rating: 0
-//           },
-//           {
-//             type: ActionType.SET_CURRENT_OFFER,
-//             payload: 0,
-//           }
-//       )
-//   ).toEqual({
-//     cities: uniqueCities,
-//     currentCity: uniqueCities[DEFAULT_CITY_INDEX],
-//     currentOffers: rentalOffers,
-//     offers: [],
-//     currentOffer: rentalOffers[0],
-//     currentComments: [],
-//     currentNearbyOffers: [],
-//     currentSortType: SortType.POPULAR,
-//     favorites: [],
-//     review: ``,
-//     rating: 0
-//   });
-// });
+it(`Reducer should set current offer`, () => {
+  expect(
+      reducer(
+          {
+            cities: uniqueCities,
+            currentCity: uniqueCities[DEFAULT_CITY_INDEX],
+            currentOffers: mocks.rentalOffers,
+            offers: [],
+            currentOffer: {},
+            currentComments: [],
+            currentNearbyOffers: [],
+            currentSortType: SortType.POPULAR,
+            favorites: [],
+            review: ``,
+            rating: 0
+          },
+          {
+            type: ActionType.SET_CURRENT_OFFER,
+            payload: 0,
+          }
+      )
+  ).toEqual({
+    cities: uniqueCities,
+    currentCity: uniqueCities[DEFAULT_CITY_INDEX],
+    currentOffers: mocks.rentalOffers,
+    offers: [],
+    currentOffer: mocks.rentalOffers[0],
+    currentComments: [],
+    currentNearbyOffers: [],
+    currentSortType: SortType.POPULAR,
+    favorites: [],
+    review: ``,
+    rating: 0
+  });
+});
 
 it(`Reducer should load comments`, () => {
   expect(
@@ -184,7 +184,7 @@ it(`Reducer should load comments`, () => {
           },
           {
             type: ActionType.LOAD_COMMENTS,
-            payload: comments,
+            payload: mocks.comments,
           }
       )
   ).toEqual({
@@ -193,7 +193,7 @@ it(`Reducer should load comments`, () => {
     currentOffers: [],
     offers: [],
     currentOffer: {},
-    currentComments: comments,
+    currentComments: mocks.comments,
     currentNearbyOffers: [],
     currentSortType: SortType.POPULAR,
     favorites: [],
@@ -220,7 +220,7 @@ it(`Reducer should load nearby offers`, () => {
           },
           {
             type: ActionType.LOAD_NEARBY_OFFERS,
-            payload: rentalOffers,
+            payload: mocks.rentalOffers,
           }
       )
   ).toEqual({
@@ -230,7 +230,7 @@ it(`Reducer should load nearby offers`, () => {
     offers: [],
     currentOffer: {},
     currentComments: [],
-    currentNearbyOffers: rentalOffers,
+    currentNearbyOffers: mocks.rentalOffers,
     currentSortType: SortType.POPULAR,
     favorites: [],
     review: ``,
@@ -292,7 +292,7 @@ it(`Reducer should load favorites`, () => {
           },
           {
             type: ActionType.LOAD_FAVORITES,
-            payload: rentalOffers,
+            payload: mocks.rentalOffers,
           }
       )
   ).toEqual({
@@ -304,7 +304,7 @@ it(`Reducer should load favorites`, () => {
     currentComments: [],
     currentNearbyOffers: [],
     currentSortType: SortType.POPULAR,
-    favorites: rentalOffers,
+    favorites: mocks.rentalOffers,
     review: ``,
     rating: 0
   });
@@ -391,9 +391,9 @@ describe(`Action creators work correctly`, () => {
   });
 
   it(`Action creator for loda offers returns correct action`, () => {
-    expect(ActionCreator.loadOffers(rentalOffers)).toEqual({
+    expect(ActionCreator.loadOffers(mocks.rentalOffers)).toEqual({
       type: ActionType.LOAD_OFFERS,
-      payload: rentalOffers
+      payload: mocks.rentalOffers
     });
   });
   it(`Action creator for add to favorites returns correct action`, () => {
@@ -409,15 +409,15 @@ describe(`Action creators work correctly`, () => {
     });
   });
   it(`Action creator for load comments returns correct action`, () => {
-    expect(ActionCreator.loadComments(comments)).toEqual({
+    expect(ActionCreator.loadComments(mocks.comments)).toEqual({
       type: ActionType.LOAD_COMMENTS,
-      payload: comments
+      payload: mocks.comments
     });
   });
   it(`Action creator for load nearby offers returns correct action`, () => {
-    expect(ActionCreator.loadNearbyOffers(rentalOffers)).toEqual({
+    expect(ActionCreator.loadNearbyOffers(mocks.rentalOffers)).toEqual({
       type: ActionType.LOAD_NEARBY_OFFERS,
-      payload: rentalOffers
+      payload: mocks.rentalOffers
     });
   });
   it(`Action creator for set current sort type returns correct action`, () => {
@@ -427,15 +427,15 @@ describe(`Action creators work correctly`, () => {
     });
   });
   it(`Action creator for loda favorites returns correct action`, () => {
-    expect(ActionCreator.loadFavorites(rentalOffers)).toEqual({
+    expect(ActionCreator.loadFavorites(mocks.rentalOffers)).toEqual({
       type: ActionType.LOAD_FAVORITES,
-      payload: rentalOffers
+      payload: mocks.rentalOffers
     });
   });
   it(`Action creator for set current review returns correct action`, () => {
-    expect(ActionCreator.setCurrentReview(review)).toEqual({
+    expect(ActionCreator.setCurrentReview(mocks.review)).toEqual({
       type: ActionType.SET_CURRENT_REVIEW,
-      payload: review
+      payload: mocks.review
     });
   });
   it(`Action creator for set current rating returns correct action`, () => {

@@ -1,5 +1,5 @@
 import {reducer, ActionCreator, ActionType, AuthorizationStatus} from './user.js';
-import mocks from '../../mocks/offers-test.js';
+import * as mocks from '../../mocks/offers-test.js';
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({

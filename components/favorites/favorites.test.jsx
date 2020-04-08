@@ -2,7 +2,7 @@ import React from 'react';
 import {MemoryRouter} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import Favorites from './favorites.jsx';
-import mocks from '../../src/mocks/offers-test.js';
+import * as mocks from '../../src/mocks/offers-test.js';
 import {AuthorizationStatus} from '../../src/const.js';
 
 it(`<Favorites /> should render correctly`, () => {
