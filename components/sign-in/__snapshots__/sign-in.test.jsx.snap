@@ -86,21 +86,10 @@ exports[`<SignIn /> should render correctly 1`] = `
               E-mail
             </label>
             <input
-              autoComplete="off"
               className="login__input form__input"
               name="email"
               placeholder="Email"
-              required={true}
-              style={
-                Object {
-                  "backgroundAttachment": "scroll",
-                  "backgroundImage": "url(\\"data:image/png",
-                  "backgroundPosition": "98% 50%",
-                  "backgroundRepeat": "no-repeat",
-                  "backgroundSize": "16px 18px",
-                  "cursor": "auto",
-                }
-              }
+              required=""
               type="email"
             />
           </div>
@@ -113,21 +102,10 @@ exports[`<SignIn /> should render correctly 1`] = `
               Password
             </label>
             <input
-              autoComplete="off"
               className="login__input form__input"
               name="password"
               placeholder="Password"
-              required={true}
-              style={
-                Object {
-                  "backgroundAttachment": "scroll",
-                  "backgroundImage": "url(\\"data:image/png",
-                  "backgroundPosition": "98% 50%",
-                  "backgroundRepeat": "no-repeat",
-                  "backgroundSize": "16px 18px",
-                  "cursor": "auto",
-                }
-              }
+              required=""
               type="password"
             />
           </div>

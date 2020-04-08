@@ -1,10 +1,11 @@
 import React from 'react';
-import {Router} from "react-router-dom";
-import history from "../../src/history.js";
+import {Router} from 'react-router-dom';
+import history from '../../src/history.js';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Main from './main.jsx';
 import mocks from '../../src/mocks/offers-test.js';
+import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {
   AUTH: `AUTH`,
@@ -33,6 +34,9 @@ it(`Should titles be clicked`, () => {
           onCityClick={() => {}}
           onMouseEnter={() => {}}
           onMouseLeave={() => {}}
+          isActiveMenu={false}
+          onSortMenuClick={() => {}}
+          currentSortType={SortType.POPULAR}
         />
       </Router>
   );

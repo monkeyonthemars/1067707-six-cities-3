@@ -1,9 +1,10 @@
 import React from 'react';
-import {Router} from "react-router-dom";
-import history from "../../src/history.js";
+import {Router} from 'react-router-dom';
+import history from '../../src/history.js';
 import renderer from 'react-test-renderer';
 import Main from './main.jsx';
 import mocks from '../../src/mocks/offers-test.js';
+import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {
   AUTH: `AUTH`,
@@ -28,6 +29,9 @@ it(`<Main /> should render correctly`, () => {
           onMouseLeave={() => {}}
           onSortTypeClick={() => {}}
           activePlaceCard={-1}
+          isActiveMenu={false}
+          onSortMenuClick={() => {}}
+          currentSortType={SortType.POPULAR}
         />
       </Router>
   ).toJSON();

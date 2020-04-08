@@ -75,3 +75,18 @@ export const uniqueCities = [
 ];
 
 export const DEFAULT_CITY_INDEX = 0;
+
+export const MAX_COUNT_COMMENTS = 10;
+
+export const ReviewsMinMaxLength = {
+  MIN_REVIEW_LENGTH: 50,
+  MAX_REVIEW_LENGTH: 300,
+};
+
+export const UserRaviewRating = {
+  rating1: 1,
+  rating2: 2,
+  rating3: 3,
+  rating4: 4,
+  rating5: 5,
+};

@@ -63,10 +63,11 @@ describe(`Action creators work correctly`, () => {
       type: ActionType.REQUIRED_AUTHORIZATION,
       payload: AuthorizationStatus.NO_AUTH,
     });
-
-    expect(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH)).toEqual({
-      type: ActionType.REQUIRED_AUTHORIZATION,
-      payload: AuthorizationStatus.AUTH,
+  });
+  it(`Action creator for set auth email returns correct action`, () => {
+    expect(ActionCreator.setAuthEmail(mocks.email)).toEqual({
+      type: ActionType.SET_AUTH_EMAIL,
+      payload: mocks.email,
     });
   });
 });

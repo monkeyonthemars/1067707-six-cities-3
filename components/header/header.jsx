@@ -1,5 +1,5 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 import {propTypes} from '../../src/types/types.js';
 import {AppRoute} from '../../src/const.js';
 import {AuthorizationStatus} from '../../src/const.js';

@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, Router} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {propTypes} from '../../src/types/types.js';
-import {Operation as UserOperation} from "../../src/reducer/user/user.js";
+import {Operation as UserOperation} from '../../src/reducer/user/user.js';
 import {ActionCreator as DataActionCreator} from '../../src/reducer/data/data.js';
 import {Operation as DataOperation} from '../../src/reducer/data/data.js';
 import {ActionCreator as OffersActionCreator} from '../../src/reducer/offers/offers.js';
@@ -16,13 +16,15 @@ import {
   getFavorites,
   getOffers,
   getCurrentRating,
-  getCurrentReview
+  getCurrentReview,
+  getCurrentSortType
 } from '../../src/reducer/data/selectors.js';
 import {getAuthorizationStatus, getAuthorizationEmail} from '../../src/reducer/user/selectors.js';
 import {
   getActivePlaceCard,
   getSubmitButtonStatus,
-  getSendingStatus
+  getSendingStatus,
+  getActiveStatusMenu
 } from '../../src/reducer/offers/selectors.js';
 import history from '../../src/history.js';
 import {AppRoute} from '../../src/const.js';
@@ -58,7 +60,10 @@ const App = (props) => {
     review,
     rating,
     offers,
-    loadOfferDetails
+    loadOfferDetails,
+    isActiveMenu,
+    onSortMenuClick,
+    currentSortType
   } = props;
 
   return (
@@ -80,6 +85,9 @@ const App = (props) => {
             onRentalTitleClick={onRentalTitleClick}
             onSortTypeClick={onSortTypeClick}
             activePlaceCard={activePlaceCard}
+            isActiveMenu={isActiveMenu}
+            onSortMenuClick={onSortMenuClick}
+            currentSortType={currentSortType}
           />
         </Route>
         <Route exact path={AppRoute.LOGIN}>
@@ -127,19 +135,23 @@ const App = (props) => {
             return (``);
           }}
         />
-        <PrivateRoute exact path={AppRoute.FAVORITES} render={() => {
-          return (
-            <Favorites
-              favorites={favorites}
-              onRentalTitleClick={onRentalTitleClick}
-              onFavoriteClick={onFavoriteClick}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              authorizationStatus={authorizationStatus}
-              email={email}
-            />
-          );
-        }}
+        <PrivateRoute
+          exact
+          path={AppRoute.FAVORITES}
+          authorizationStatus={authorizationStatus}
+          render={() => {
+            return (
+              <Favorites
+                favorites={favorites}
+                onRentalTitleClick={onRentalTitleClick}
+                onFavoriteClick={onFavoriteClick}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                authorizationStatus={authorizationStatus}
+                email={email}
+              />
+            );
+          }}
         />
       </Switch>
     </Router>
@@ -171,7 +183,10 @@ App.propTypes = {
   isSending: propTypes.isSending,
   review: propTypes.review,
   rating: propTypes.rating,
-  loadOfferDetails: propTypes.loadOfferDetails
+  loadOfferDetails: propTypes.loadOfferDetails,
+  isActiveMenu: propTypes.isActiveMenu,
+  onSortMenuClick: propTypes.onSortMenuClick,
+  currentSortType: propTypes.currentSortType,
 };
 
 const mapStateToProps = (state) => ({
@@ -189,7 +204,9 @@ const mapStateToProps = (state) => ({
   submitButtonDisabled: getSubmitButtonStatus(state),
   isSending: getSendingStatus(state),
   review: getCurrentReview(state),
-  rating: getCurrentRating(state)
+  rating: getCurrentRating(state),
+  isActiveMenu: getActiveStatusMenu(state),
+  currentSortType: getCurrentSortType(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -200,7 +217,6 @@ const mapDispatchToProps = (dispatch) => ({
 
   onCityClick(city) {
     dispatch(DataActionCreator.changeCity(city));
-    dispatch(DataActionCreator.getOffers());
   },
   onMouseEnter(id) {
     dispatch(OffersActionCreator.setActivePlaceCard(id));
@@ -213,13 +229,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(DataOperation.loadFavorites());
   },
   onRentalTitleClick(offerId) {
-    dispatch(DataActionCreator.getOffers());
     dispatch(DataActionCreator.setCurrentOffer(offerId));
     dispatch(DataOperation.loadComments(offerId));
     dispatch(DataOperation.loadNearbyOffers(offerId));
   },
   onSortTypeClick(sortType) {
     dispatch(DataActionCreator.setCurrentSortType(sortType));
+    dispatch(OffersActionCreator.changeActiveStatusMenu(false));
   },
   onSubmitReviewClick(comment, isSending) {
     dispatch(OffersActionCreator.changeSendingStatus(isSending));
@@ -234,7 +250,10 @@ const mapDispatchToProps = (dispatch) => ({
   loadOfferDetails(offerId) {
     dispatch(DataOperation.loadComments(offerId));
     dispatch(DataOperation.loadNearbyOffers(offerId));
-  }
+  },
+  onSortMenuClick(status) {
+    dispatch(OffersActionCreator.changeActiveStatusMenu(status));
+  },
 
 });
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {propTypes} from '../../src/types/types.js';
 import FavoriteCity from '../favorite-city/favorite-city.jsx';
 import FavoritesEmpty from '../favorites-empty/favorites-empty.jsx';

@@ -1,21 +1,30 @@
-import React from "react";
+import React from 'react';
 import {SortType} from '../../src/const.js';
 import {propTypes} from '../../src/types/types.js';
 
 const Sort = (props) => {
 
-  const {onSortTypeClick} = props;
+  const {
+    onSortTypeClick,
+    isActiveMenu,
+    onSortMenuClick,
+    currentSortType
+  } = props;
 
   return (
     <form className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by</span>
-      <span className="places__sorting-type" tabIndex={0}>
-        Popular
+      <span className="places__sorting-caption">Sort by </span>
+      <span className="places__sorting-type" tabIndex={0} onClick={() => {
+        onSortMenuClick(!isActiveMenu);
+      }}>
+        {currentSortType}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
       </span>
-      <ul className="places__options places__options--custom places__options--opened">
+      <ul className={isActiveMenu
+        ? `places__options places__options--custom places__options--opened`
+        : `places__options places__options--custom`}>
         {
           Object.keys(SortType).map((sortType) => {
             return (
@@ -34,6 +43,9 @@ const Sort = (props) => {
 
 Sort.propTypes = {
   onSortTypeClick: propTypes.onSortTypeClick,
+  isActiveMenu: propTypes.isActiveMenu,
+  onSortMenuClick: propTypes.onSortMenuClick,
+  currentSortType: propTypes.currentSortType,
 };
 
 export default Sort;

@@ -110,5 +110,8 @@ export const propTypes = {
   isSending: PropTypes.bool.isRequired,
   review: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
-  loadOfferDetails: PropTypes.func.isRequired
+  loadOfferDetails: PropTypes.func.isRequired,
+  isActiveMenu: PropTypes.bool.isRequired,
+  onSortMenuClick: PropTypes.func.isRequired,
+  currentSortType: PropTypes.string.isRequired,
 };

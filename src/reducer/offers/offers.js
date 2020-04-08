@@ -1,18 +1,18 @@
+import {extend} from '../../utils.js';
+
 const initialState = {
   activePlaceCard: -1,
   submitButtonDisabled: true,
-  isSending: false
-};
-
-const extend = (a, b) => {
-  return Object.assign({}, a, b);
+  isSending: false,
+  isActiveMenu: false
 };
 
 const ActionType = {
   SET_ACTIVE_PLACE_CARD: `SET_ACTIVE_PLACE_CARD`,
   REMOVE_ACTIVE_PLACE_CARD: `REMOVE_ACTIVE_PLACE_CARD`,
   CHANGE_SUBMIT_BUTTON_STATUS: `CHANGE_SUBMIT_BUTTON_STATUS`,
-  CHANGE_SENDING_STATUS: `CHANGE_SENDING_STATUS`
+  CHANGE_SENDING_STATUS: `CHANGE_SENDING_STATUS`,
+  CHANGE_ACTIVE_STATUS_MENU: `CHANGE_ACTIVE_STATUS_MENU`
 };
 
 const ActionCreator = {
@@ -31,6 +31,10 @@ const ActionCreator = {
   changeSendingStatus: (isSending) => ({
     type: ActionType.CHANGE_SENDING_STATUS,
     payload: isSending
+  }),
+  changeActiveStatusMenu: (isActive) => ({
+    type: ActionType.CHANGE_ACTIVE_STATUS_MENU,
+    payload: isActive
   })
 };
 
@@ -54,6 +58,11 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_SENDING_STATUS:
       return extend(state, {
         isSending: action.payload
+      });
+
+    case ActionType.CHANGE_ACTIVE_STATUS_MENU:
+      return extend(state, {
+        isActiveMenu: action.payload
       });
   }
 

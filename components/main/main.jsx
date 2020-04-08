@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect} from "react-router-dom";
+import {Redirect} from 'react-router-dom';
 import {propTypes} from '../../src/types/types.js';
 import Map from '../map/map.jsx';
 import CitiesList from '../cities-list/cities-list.jsx';
@@ -22,7 +22,10 @@ const Main = (props) => {
     onMouseEnter,
     onMouseLeave,
     onSortTypeClick,
-    activePlaceCard
+    activePlaceCard,
+    isActiveMenu,
+    onSortMenuClick,
+    currentSortType
   } = props;
 
   return authorizationStatus === AuthorizationStatus.NO_ACCESS
@@ -55,6 +58,9 @@ const Main = (props) => {
 
                   <Sort
                     onSortTypeClick={onSortTypeClick}
+                    isActiveMenu={isActiveMenu}
+                    onSortMenuClick={onSortMenuClick}
+                    currentSortType={currentSortType}
                   />
 
                   <div className="cities__places-list places__list tabs__content">
@@ -103,6 +109,9 @@ Main.propTypes = {
   onMouseLeave: propTypes.onMouseLeave,
   onSortTypeClick: propTypes.onSortTypeClick,
   activePlaceCard: propTypes.activePlaceCard,
+  isActiveMenu: propTypes.isActiveMenu,
+  onSortMenuClick: propTypes.onSortMenuClick,
+  currentSortType: propTypes.currentSortType,
 };
 
 export default Main;

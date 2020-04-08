@@ -1,7 +1,6 @@
-import {createSelector} from "reselect";
-import {SortType} from '../../const.js';
-import NameSpace from "../name-space.js";
-
+import {createSelector} from 'reselect';
+import {SortType, MAX_COUNT_COMMENTS} from '../../const.js';
+import NameSpace from '../name-space.js';
 
 export const getCurrentCity = (state) => {
   return state[NameSpace.DATA].currentCity;
@@ -16,7 +15,10 @@ export const getCurrentSortType = (state) => {
 };
 
 export const getCurrentComments = (state) => {
-  return state[NameSpace.DATA].currentComments;
+  return state[NameSpace.DATA].currentComments.sort((a, b) => {
+    return a.date < b.date;
+  })
+  .slice(0, MAX_COUNT_COMMENTS);
 };
 
 export const getNearbyOffers = (state) => {

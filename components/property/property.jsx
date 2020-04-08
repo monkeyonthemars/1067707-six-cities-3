@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {propTypes} from '../../src/types/types.js';
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 import Map from '../map/map.jsx';

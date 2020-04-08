@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {App} from './app.jsx';
 import mocks from '../../src/mocks/offers-test.js';
+import {SortType} from '../../src/const.js';
 
 const AuthorizationStatus = {
   AUTH: `AUTH`,
@@ -37,6 +38,9 @@ describe(`Render App`, () => {
           review={``}
           rating={0}
           loadOfferDetails={() => {}}
+          isActiveMenu={false}
+          onSortMenuClick={() => {}}
+          currentSortType={SortType.POPULAR}
         />
     ).toJSON();
 

@@ -1,8 +1,8 @@
-import React, {createRef} from "react";
-import {Redirect} from "react-router-dom";
+import React, {createRef} from 'react';
+import {Redirect} from 'react-router-dom';
 import {propTypes} from '../../src/types/types.js';
-import {AuthorizationStatus} from "../../src/reducer/user/user.js";
-import {AppRoute} from "../../src/const.js";
+import {AuthorizationStatus} from '../../src/reducer/user/user.js';
+import {AppRoute} from '../../src/const.js';
 import Header from '../header/header.jsx';
 
 const SignIn = (props) => {
@@ -45,15 +45,7 @@ const SignIn = (props) => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    required style={{
-                      backgroundImage: `url("data:image/png`,
-                      backgroundRepeat: `no-repeat`,
-                      backgroundAttachment: `scroll`,
-                      backgroundSize: `16px 18px`,
-                      backgroundPosition: `98% 50%`,
-                      cursor: `auto`
-                    }}
-                    autoComplete="off"
+                    required=""
                     ref={loginRef} />
                 </div>
                 <div className="login__input-wrapper form__input-wrapper">
@@ -63,15 +55,7 @@ const SignIn = (props) => {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    required style={{
-                      backgroundImage: `url("data:image/png`,
-                      backgroundRepeat: `no-repeat`,
-                      backgroundAttachment: `scroll`,
-                      backgroundSize: `16px 18px`,
-                      backgroundPosition: `98% 50%`,
-                      cursor: `auto`
-                    }}
-                    autoComplete="off"
+                    required=""
                     ref={passwordRef} />
                 </div>
                 <button className="login__submit form__submit button" type="submit">Sign in</button>

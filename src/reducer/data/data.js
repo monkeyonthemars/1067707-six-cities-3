@@ -1,11 +1,6 @@
 import {DEFAULT_CITY_INDEX, SortType, uniqueCities} from '../../const.js';
-import {getOfferById} from '../../utils.js';
-
-const getOffersInTheCity = (city, offers) => {
-  return offers.slice().filter((offer) => {
-    return offer.city.name === city.name;
-  });
-};
+import {getOfferById, tagOfferToFavorites} from '../../utils.js';
+import {extend} from '../../utils.js';
 
 const initialState = {
   cities: uniqueCities,
@@ -21,13 +16,8 @@ const initialState = {
   rating: 0
 };
 
-const extend = (a, b) => {
-  return Object.assign({}, a, b);
-};
-
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
-  GET_OFFERS: `GET_OFFERS`,
   LOAD_OFFERS: `LOAD_OFFERS`,
   ADD_TO_FAVORITES: `ADD_TO_FAVORITES`,
   SET_CURRENT_OFFER: `SET_CURRENT_OFFER`,
@@ -42,10 +32,6 @@ const ActionType = {
 const ActionCreator = {
   changeCity: (city) => ({
     type: ActionType.CHANGE_CITY,
-    payload: city
-  }),
-  getOffers: (city) => ({
-    type: ActionType.GET_OFFERS,
     payload: city
   }),
   loadOffers: (offers) => ({
@@ -140,25 +126,11 @@ const Operation = {
   },
 };
 
-const tagOfferToFavorites = (offers, offerId) => {
-  offers.forEach((item) => {
-    if (item.id === offerId) {
-      item.isBookmark = !item.isBookmark;
-    }
-  });
-  return offers.slice();
-};
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return extend(state, {
         currentCity: action.payload,
-      });
-
-    case ActionType.GET_OFFERS:
-      return extend(state, {
-        currentOffers: getOffersInTheCity(state.currentCity, state.offers, state.currentSortType)
       });
 
     case ActionType.LOAD_OFFERS:

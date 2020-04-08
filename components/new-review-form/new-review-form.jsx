@@ -1,10 +1,6 @@
-import React from "react";
-import {propTypes} from "../../src/types/types";
-
-const ReviewsMinMaxLength = {
-  MIN_REVIEW_LENGTH: 50,
-  MAX_REVIEW_LENGTH: 300,
-};
+import React from 'react';
+import {propTypes} from '../../src/types/types';
+import {ReviewsMinMaxLength, UserRaviewRating} from '../../src/const.js';
 
 const NewReviewForm = (props) => {
 
@@ -66,14 +62,14 @@ const NewReviewForm = (props) => {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
-          defaultValue={5}
+          defaultValue={UserRaviewRating.rating5}
           id="5-stars"
           type="radio"
           onChange={(evt) => {
             onChangeRating(evt);
           }}
           disabled={isSending}
-          checked={rating === 5}
+          checked={rating === UserRaviewRating.rating5}
         />
         <label
           htmlFor="5-stars"
@@ -87,14 +83,14 @@ const NewReviewForm = (props) => {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
-          defaultValue={4}
+          defaultValue={UserRaviewRating.rating4}
           id="4-stars"
           type="radio"
           onChange={(evt) => {
             onChangeRating(evt);
           }}
           disabled={isSending}
-          checked={rating === 4}
+          checked={rating === UserRaviewRating.rating4}
         />
         <label
           htmlFor="4-stars"
@@ -108,14 +104,14 @@ const NewReviewForm = (props) => {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
-          defaultValue={3}
+          defaultValue={UserRaviewRating.rating3}
           id="3-stars"
           type="radio"
           onChange={(evt) => {
             onChangeRating(evt);
           }}
           disabled={isSending}
-          checked={rating === 3}
+          checked={rating === UserRaviewRating.rating3}
         />
         <label
           htmlFor="3-stars"
@@ -129,14 +125,14 @@ const NewReviewForm = (props) => {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
-          defaultValue={2}
+          defaultValue={UserRaviewRating.rating2}
           id="2-stars"
           type="radio"
           onChange={(evt) => {
             onChangeRating(evt);
           }}
           disabled={isSending}
-          checked={rating === 2}
+          checked={rating === UserRaviewRating.rating2}
         />
         <label
           htmlFor="2-stars"
@@ -150,14 +146,14 @@ const NewReviewForm = (props) => {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
-          defaultValue={1}
+          defaultValue={UserRaviewRating.rating1}
           id="1-star"
           type="radio"
           onChange={(evt) => {
             onChangeRating(evt);
           }}
           disabled={isSending}
-          checked={rating === 1}
+          checked={rating === UserRaviewRating.rating1}
         />
         <label
           htmlFor="1-star"

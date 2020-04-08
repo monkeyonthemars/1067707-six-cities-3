@@ -1,4 +1,5 @@
 import {AuthorizationStatus} from '../../const.js';
+import {extend} from '../../utils.js';
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
@@ -29,11 +30,11 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.REQUIRED_AUTHORIZATION:
-      return Object.assign({}, state, {
+      return extend(state, {
         authorizationStatus: action.payload,
       });
     case ActionType.SET_AUTH_EMAIL:
-      return Object.assign({}, state, {
+      return extend(state, {
         email: action.payload,
       });
   }

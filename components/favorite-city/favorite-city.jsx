@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {propTypes} from '../../src/types/types.js';
 import FavoriteCard from '../favorite-card/favorite-card.jsx';
 

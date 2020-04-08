@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {propTypes} from '../../src/types/types.js';
 import Header from '../header/header.jsx';
 

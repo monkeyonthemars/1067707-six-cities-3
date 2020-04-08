@@ -184,10 +184,11 @@ exports[`<Main /> should render correctly 1`] = `
             <span
               className="places__sorting-caption"
             >
-              Sort by
+              Sort by 
             </span>
             <span
               className="places__sorting-type"
+              onClick={[Function]}
               tabIndex={0}
             >
               Popular
@@ -202,7 +203,7 @@ exports[`<Main /> should render correctly 1`] = `
               </svg>
             </span>
             <ul
-              className="places__options places__options--custom places__options--opened"
+              className="places__options places__options--custom"
             >
               <li
                 className="places__option"
